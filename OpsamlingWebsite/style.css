@@ -88,7 +88,7 @@ header h1
 .text
 {
     text-align: left;
-    margin-right: 50%;
+    margin-right: 40%;
     margin-left: 25px;
     font-size: 23px;
 }
@@ -96,6 +96,19 @@ header h1
 .FrontImg
 {
     position: absolute;
-    right: 25px;
-    top: 169px;
+    right: 0px;
+    margin: 169px 25px 25px 25px;
+    top: 25px;
+
 }
+footer {
+    text-align: center;
+    padding: 0px;
+    height: 27px;
+    background-color: royalblue;
+    position: fixed;
+    font-size: 23px;
+    bottom: 0px;
+    width: 100%;
+    color: white;
+  }
