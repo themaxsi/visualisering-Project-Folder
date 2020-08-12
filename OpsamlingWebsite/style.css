@@ -102,13 +102,12 @@ header h1
 
 }
 footer {
-    text-align: center;
-    padding: 0px;
-    height: 27px;
-    background-color: royalblue;
     position: fixed;
-    font-size: 23px;
-    bottom: 0px;
+    left: 0;
+    bottom: 0;
     width: 100%;
+    background-color: royalblue;
     color: white;
+    text-align: center;
+    font-size: 15px;
   }
