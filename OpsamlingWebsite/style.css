@@ -1,11 +1,15 @@
-html, body 
+*
 {
-    width: 100%;
-    height: 100%;
     margin: 0px;
     padding: 0px;
 }
 
+html, body 
+{
+    height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/*-------Header-------*/
 .N
 {
     position: absolute;
@@ -21,6 +25,22 @@ html, body
     right: 0px;
 }
 
+header 
+{
+    height: 100px;
+}
+
+header h1
+{
+    font-size: 86px;
+    background-color: dimgray;
+    color: aquamarine;
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 1;
+}
+
+/*--------Nav--------*/
 nav
 {
     background-color: royalblue;
@@ -38,22 +58,6 @@ ul li:last-child
 {
     border-right: none;
 }
-
-nav img
-{
-    position: absolute;
-    right: 0px;
-    top: 100px;
-    z-index: 5;
-    height: 44px;
-}
-
-h2
-{
-    margin: 25px;
-    font-size: 30px;
-}
-
 nav ul
 {
 
@@ -62,29 +66,20 @@ nav ul
     margin: 0px;
     
 }
-
-a
+nav img
 {
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    text-decoration: none;
+    position: absolute;
+    right: 0px;
+    top: 100px;
+    z-index: 5;
+    height: 44px;
 }
-
-header 
+/*--------Text--------*/
+h2
 {
-    height: 100px;
+    margin: 25px;
+    font-size: 30px;
 }
-
-header h1
-{
-    font-size: 86px;
-    background-color: dimgray;
-    color: aquamarine;
-    text-align: center;
-    z-index: 1;
-}
-
 .text
 {
     text-align: left;
@@ -93,6 +88,19 @@ header h1
     font-size: 23px;
 }
 
+/*--------Links--------*/
+a
+{
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+/*--------Img--------*/
 .FrontImg
 {
     position: absolute;
@@ -101,13 +109,15 @@ header h1
     top: 25px;
 
 }
-footer {
+
+/*--------Footer--------*/
+footer 
+{
     position: fixed;
-    left: 0;
     bottom: 0;
     width: 100%;
     background-color: royalblue;
     color: white;
     text-align: center;
-    font-size: 15px;
+    font-size: 20px;
   }
