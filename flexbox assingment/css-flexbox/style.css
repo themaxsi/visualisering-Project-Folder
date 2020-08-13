@@ -1,0 +1,88 @@
+html, body
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+h1
+{
+    text-align: center;
+    Font-size: 32px;
+    font-weight: bold;
+}
+
+.mainflex
+{
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.parent1
+{
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    
+}
+.parent2
+{
+    background-color: #ccc;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+.parent3
+{
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.parent4
+{
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+}
+
+.child1
+{
+    background-color: red;
+    width: 100px; 
+    padding: 10px; 
+    color: #fff; 
+    box-sizing: border-box; 
+    font-size: 42px;
+}
+.child2
+{
+    background-color: green;
+    width: 100px; 
+    padding: 10px; 
+    color: #fff; 
+    box-sizing: border-box; 
+    font-size: 42px;
+}
+.child3
+{
+    background-color: blue;
+    width: 100px; 
+    padding: 10px; 
+    color: #fff; 
+    box-sizing: border-box; 
+    font-size: 42px;
+}
+.child4
+{
+    background-color: orange;
+    width: 100px; 
+    padding: 10px; 
+    color: #fff; 
+    box-sizing: border-box; 
+    font-size: 42px;
+}
