@@ -1,3 +1,16 @@
+:root
+{
+    --main-hue: 196;
+
+    --main-color: hsl(var(--main-hue), 44%, 81%);
+    --light-main-color: hsl(var(--main-hue), 44%, 91%);
+    --medium-dark-main-color: hsl(var(--main-hue), 44%, 31%);
+    --dark-main-color: hsl(var(--main-hue), 44%, 13%);
+
+}
+
+
+
 /* Reset of all margins and paddings */
 
 *
@@ -13,6 +26,7 @@ body
     width: 1200px;
     height: 100vh;
     margin: 0 auto;
+    background-color: var(--main-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -20,7 +34,7 @@ body
 
 header
 {
-    background-color: #CCCCCC;
+    background-color: var(--medium-dark-main-color);
     height: 100px;
 }
 
@@ -54,7 +68,7 @@ nav ul li:hover
 nav.top, footer
 {
     height: 40px;
-    background-color: #565952;
+    background-color: var(--dark-main-color);
     color: white;
 }
 
@@ -70,12 +84,12 @@ nav.side
     float: left;
     height: 100%;
     width: 15%;
-    background-color: #BBBFBA;
+    background-color: var(--medium-dark-main-color);
 }
 
 nav.side ul
 {
-    background-color: rgba(50, 54, 84, 0.8);
+    background-color: var(--medium-dark-main-color);
 }
 
 nav.side ul li a
@@ -136,10 +150,10 @@ article img
 
 h2
 {
-    color: #BBBFBA;
+    color: #616160;
     margin-bottom: 1em;
     padding-bottom: 1em;
-    border-bottom: 1px solid #BBBFBA;
+    border-bottom: 1px solid #616160;
 }
 
 h3
