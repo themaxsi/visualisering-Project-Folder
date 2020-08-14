@@ -1,0 +1,117 @@
+html
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+body
+{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.main
+{
+    
+    width: 570px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.case1
+{
+    width: 180px;
+    height: 180px;
+    background-color: #999;
+    margin: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.case2
+{
+    width: 180px;
+    height: 180px;
+    background-color: #999;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.case3
+{
+    width: 180px;
+    height: 180px;
+    background-color: #999;
+    margin: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.case4
+{
+    width: 180px;
+    height: 180px;
+    background-color: #999;
+    margin: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.case5
+{
+    width: 180px;
+    height: 180px;
+    background-color: #999;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.case6
+{
+    width: 180px;
+    height: 180px;
+    background-color: #999;
+    margin: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.case7
+{
+    width: 180px;
+    height: 180px;
+    background-color: #999;
+    margin: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.case8
+{
+    width: 180px;
+    height: 180px;
+    background-color: #999;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.case9
+{
+    width: 180px;
+    height: 180px;
+    background-color: #999;
+    margin: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.smallCase
+{
+    width: 50px;
+    height: 50px;
+    background-color: lime;
+}
