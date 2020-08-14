@@ -1,0 +1,56 @@
+body
+{
+    margin: 0 auto;
+}
+.wrapper
+{
+    display: flex;
+    height: 100%;
+    min-height: 100%;
+    flex-direction: column;
+}
+
+.header
+{
+    height: 50px;
+    background-color: #666;
+
+}
+.content
+{
+    background-color: #ccc;
+    flex: 1;
+}
+.footer
+{
+    height: 50px;
+    background-color: #666;
+    
+}
+.columns
+{
+    display: flex;
+    height: 100%;
+    min-height: 100%;
+
+}
+
+.main
+{
+    flex: 1;
+    background-color: #ccc;
+    order: 2;
+}
+.sidebar-first
+{
+    width: 20%;
+    background-color: #999;
+    order: 1;
+}
+
+.sidebar-second
+{
+    width: 20%;
+    background-color: #999;
+    order: 3;
+}
