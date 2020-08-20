@@ -1,0 +1,278 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html
+{
+    height: 100vh;
+}
+
+.top
+{
+    grid-area: blue-top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color:   hsl(175, 50%, 50%);
+}
+
+.img
+{
+    height: 100px;
+    grid-area: img1;
+    display: flex;
+    background-color:  lightgray;
+    justify-content: center;
+    align-items: center;
+}
+
+.motto
+{
+    grid-area: motto;
+    display: flex;
+    justify-content: center;
+    background-color:  lightgray;
+    align-items: center;
+}
+
+.Green
+{
+    grid-area: greenArea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:   hsl(110, 50%, 50%);
+}
+
+.headline
+{
+    grid-area: headline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  lightgray;
+}
+
+.headline1
+{
+    grid-area: headline1;
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    align-items: center;
+    background-color:  lightgray;
+}
+
+.headline2
+{
+    grid-area: headline2;
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    align-items: center;
+    background-color:  lightgray;
+}
+
+.headline3
+{
+    grid-area: headline3;
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    background-color:  lightgray;
+}
+.headline4
+{
+    grid-area: headline4;
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    background-color:  lightgray;
+}
+.headline5
+{
+    grid-area: headline5;
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    background-color:  lightgray;
+}
+.headline6
+{
+    grid-area: headline6;
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    background-color:  lightgray;
+}
+.textBlock
+{
+    grid-area: TextBlock;
+    display: flex;
+    justify-content: center;
+    background-color:  lightgray;
+    align-items: center;
+}
+.textBlock3
+{
+    grid-area: textBlock3;
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    background-color: lightgray;
+    align-items: center;
+}
+.textBlock4
+{
+    grid-area: textBlock4;
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    height: 90%;
+    align-items: center;
+}
+.textBlock5
+{
+    grid-area: textBlock5;
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    background-color: lightgray;
+    align-items: center;
+}
+.textBlock6
+{
+    grid-area: textBlock6;
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    background-color: lightgray;
+    align-items: center;
+}
+.textBlock7
+{
+    grid-area: textBlock7;
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    background-color: lightgray;
+    align-items: center;
+}.textBlock8
+{
+    grid-area: textBlock8;
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    background-color: lightgray;
+    align-items: center;
+}
+.purple
+{
+    grid-area: PurpleArea;
+    display: grid;
+    background-color:   hsl(280, 50%, 50%);
+    justify-content: center;
+    align-items: center;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+            ". . headline1 headline1 . headline2 headline2 . headline3 headline3 . ."
+            ". . headline1 headline1 . headline2 headline2 . headline3 headline3 . ."
+            ". . textBlock3 textBlock3 . textBlock4 textBlock4 . textBlock5 textBlock5 . ."
+            ;
+}
+
+.Yellow
+{
+    grid-area: YellowArea;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color:   hsl(60, 50%, 50%);
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+            ". . headline5 headline5 . ." 
+            ". textBlock7 textBlock7 textBlock7 textBlock7 ."
+            ;
+
+}
+
+.Orange
+{
+    grid-area: OrangeArea;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color:   hsl(40, 50%, 50%);
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+            ". . headline6 headline6 . ." 
+            ". textBlock8 textBlock8 textBlock8 textBlock8 ."
+            ;
+}
+
+.Bottom
+{
+    grid-area: bottomArea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:   hsl(220, 50%, 50%);
+}
+
+.textBlock2
+{
+    grid-area: textBlock2;
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    align-items: center;
+}
+.textBlock1
+{
+    grid-area: textBlock1;
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    align-items: center;
+}
+
+
+.container
+{
+    display: grid;
+    height: 100%;
+    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 200px 100px 400px 100px 300px 300px 100px 200px 100px 300px 200px 200px 100px;
+    grid-template-areas: 
+        "blue-top blue-top blue-top blue-top blue-top blue-top blue-top blue-top blue-top blue-top blue-top blue-top"
+        ". . . . . img1 img1 . . . . ."
+        ". . . . motto motto motto motto . . . ."
+        "greenArea greenArea greenArea greenArea greenArea greenArea greenArea greenArea greenArea greenArea greenArea greenArea"
+        ". . . . headline headline headline headline . . . ."
+        ". textBlock1 textBlock1 textBlock1 textBlock1 . . textBlock2 textBlock2 textBlock2 textBlock2 ."
+        "PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea"
+        "PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea"
+        "PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea PurpleArea"
+        ". . . . headline4 headline4 headline4 headline4 . . . ."
+        ". .  . textBlock6 textBlock6 textBlock6 textBlock6 textBlock6 textBlock6 . . ."
+        "YellowArea YellowArea YellowArea YellowArea YellowArea YellowArea OrangeArea OrangeArea OrangeArea OrangeArea OrangeArea OrangeArea"
+        "YellowArea YellowArea YellowArea YellowArea YellowArea YellowArea OrangeArea OrangeArea OrangeArea OrangeArea OrangeArea OrangeArea"
+        "bottomArea bottomArea bottomArea bottomArea bottomArea bottomArea bottomArea bottomArea bottomArea bottomArea bottomArea bottomArea"
+        ;
+}
+
+
