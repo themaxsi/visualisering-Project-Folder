@@ -24,6 +24,7 @@ html
     height: 100px;
     grid-area: img1;
     display: flex;
+    margin: 5px;
     background-color:  lightgray;
     justify-content: center;
     align-items: center;
@@ -34,6 +35,7 @@ html
     grid-area: motto;
     display: flex;
     justify-content: center;
+    margin: 5px;
     background-color:  lightgray;
     align-items: center;
 }
@@ -51,6 +53,7 @@ html
 {
     grid-area: headline;
     display: flex;
+    margin: 5px;
     justify-content: center;
     align-items: center;
     background-color:  lightgray;
@@ -62,6 +65,7 @@ html
     display: flex;
     justify-content: center;
     height: 90%;
+    margin: 5px;
     align-items: center;
     background-color:  lightgray;
 }
@@ -72,6 +76,7 @@ html
     display: flex;
     justify-content: center;
     height: 90%;
+    margin: 5px;
     align-items: center;
     background-color:  lightgray;
 }
@@ -81,6 +86,7 @@ html
     grid-area: headline3;
     display: flex;
     height: 90%;
+    margin: 5px;
     justify-content: center;
     align-items: center;
     background-color:  lightgray;
@@ -99,6 +105,7 @@ html
     grid-area: headline5;
     display: flex;
     height: 90%;
+    margin: 5px;
     justify-content: center;
     align-items: center;
     background-color:  lightgray;
@@ -108,6 +115,7 @@ html
     grid-area: headline6;
     display: flex;
     height: 90%;
+    margin: 5px;
     justify-content: center;
     align-items: center;
     background-color:  lightgray;
@@ -116,6 +124,7 @@ html
 {
     grid-area: TextBlock;
     display: flex;
+    margin: 5px;
     justify-content: center;
     background-color:  lightgray;
     align-items: center;
@@ -126,6 +135,7 @@ html
     display: flex;
     justify-content: center;
     height: 90%;
+    margin: 5px;
     background-color: lightgray;
     align-items: center;
 }
@@ -133,6 +143,7 @@ html
 {
     grid-area: textBlock4;
     display: flex;
+    margin: 5px;
     justify-content: center;
     background-color: lightgray;
     height: 90%;
@@ -143,6 +154,7 @@ html
     grid-area: textBlock5;
     display: flex;
     height: 90%;
+    margin: 5px;
     justify-content: center;
     background-color: lightgray;
     align-items: center;
@@ -152,6 +164,7 @@ html
     grid-area: textBlock6;
     display: flex;
     height: 90%;
+    margin: 5px;
     justify-content: center;
     background-color: lightgray;
     align-items: center;
@@ -161,6 +174,7 @@ html
     grid-area: textBlock7;
     display: flex;
     height: 90%;
+    margin: 5px;
     justify-content: center;
     background-color: lightgray;
     align-items: center;
@@ -169,6 +183,7 @@ html
     grid-area: textBlock8;
     display: flex;
     height: 90%;
+    margin: 5px;
     justify-content: center;
     background-color: lightgray;
     align-items: center;
@@ -195,6 +210,7 @@ html
     grid-area: YellowArea;
     display: grid;
     justify-content: center;
+    margin: 5px;
     align-items: center;
     background-color:   hsl(60, 50%, 50%);
 
@@ -211,6 +227,7 @@ html
 {
     grid-area: OrangeArea;
     display: grid;
+    margin: 5px;
     justify-content: center;
     align-items: center;
     background-color:   hsl(40, 50%, 50%);
@@ -229,6 +246,7 @@ html
     display: flex;
     justify-content: center;
     align-items: center;
+    
     background-color:   hsl(220, 50%, 50%);
 }
 
@@ -237,6 +255,7 @@ html
     grid-area: textBlock2;
     display: flex;
     justify-content: center;
+    margin: 5px;
     background-color: lightgray;
     align-items: center;
 }
@@ -244,6 +263,7 @@ html
 {
     grid-area: textBlock1;
     display: flex;
+    margin: 5px;
     justify-content: center;
     background-color: lightgray;
     align-items: center;

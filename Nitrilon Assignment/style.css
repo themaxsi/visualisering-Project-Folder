@@ -1,0 +1,111 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+:root
+{
+    --main-hue: 209;
+    --main2-hue: 37;
+
+    --main-color: hsl(var(--main-hue), 75%, 65%);
+    --light-main-color: hsl(var(--main-hue), 65%, 80%);
+    --dark-main-color: hsl(var(--main-hue), 88%, 48%);
+    --dark-gray-color: hsl(var(--main2-hue), 0%, 45%);
+    --light-gray-color: hsl(var(--main2-hue), 2%, 85%);
+
+}
+
+html
+{
+    height: 100vh;
+    background-color: var(--main-color);
+}
+
+.N
+{
+    height: 150px;
+}
+
+.Banner
+{
+    grid-area: banner;
+    display: flex;
+    justify-content: center;
+    background-color:   var(--light-main-color);
+}
+
+.content
+{
+    grid-area: contentBox;
+    
+    background-color:   var(--main-color);
+}
+
+.menu1
+{
+    grid-area: menuNav;
+    background-color:   var(--dark-gray-color)
+}
+
+.fot
+{
+    grid-area: Fot;
+    background-color:   var(--dark-gray-color)
+}
+
+.InfoBox
+{
+    grid-area: Info;
+    display: none;
+    background-color:   var(--light-main-color)
+}
+
+/*Mobil version*/
+.Container
+{
+    display: grid;
+    height: 100%;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 40px 2fr 40px;
+    grid-template-areas: 
+        "banner"
+        "menuNav"
+        "contentBox"
+        "Fot";
+
+}
+
+/*Computer version*/
+@media only screen and (min-width: 500px)
+{
+
+    .InfoBox
+    {
+        grid-area: Info;
+        display: block;
+        margin: 5px;
+        border: 2px solid black;
+        background-color:   var(--light-main-color)
+    }
+
+    .Container
+    {
+        display: grid;
+        height: 100%;
+
+        grid-template-columns: 1.5fr 2fr 3fr;
+        grid-template-rows: 1fr 40px 1fr 1fr 1fr 1fr 40px;
+        grid-template-areas: 
+            "banner banner banner"
+            "menuNav menuNav menuNav"
+            "Info contentBox contentBox"
+            "Info contentBox contentBox"
+            "Info contentBox contentBox"
+            "Info contentBox contentBox"
+            "Fot Fot Fot";
+
+    }
+}
