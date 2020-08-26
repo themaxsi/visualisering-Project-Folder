@@ -1,0 +1,141 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+html
+{
+    height: 100vh;
+}
+
+
+
+
+header, footer
+{
+    background-color: hsl(209, 50%, 30%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+main
+{
+    background-color: hsl(209, 20%, 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    
+    
+}
+
+main h2
+{
+    animation: BounceInText 2s; 
+    animation-direction: normal; 
+}
+
+h2
+{
+    color: hsl(209, 10%, 100%);
+}
+
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+}
+
+
+@keyframes BounceInText
+{
+    0% {transform: scale(0.1); opacity: 0%;}
+    60% {transform: scale(1.2); opacity: 100%;}
+    100% {transform: scale(1);}
+}
+
+.hamIcon, .closeIcon , input
+{
+    width: 30px;
+    height: 50px;
+    z-index: 3;
+    position: absolute;
+    left: 10px;
+    display: block;
+}
+
+input
+{
+    z-index: 50;
+    opacity: 0%;
+    cursor: pointer;
+}
+
+
+.Check:checked ~ul
+{
+    display: flex;
+    transform: translateX(0%);
+    transition: transform 0.5s;
+}
+
+ul
+{
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    opacity: 90%;
+    position: absolute;
+    top: 0%;
+    z-index: 2;
+    background-color: hsl(209, 30%, 60%);
+    transform: translateX(-100%);
+    
+}
+
+ul li
+{
+    padding: 20px;
+}
+li a
+{
+    color: hsl(209, 10%, 100%);
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+
+
+/* transition: transform 0.5s; */
+
+
+.Check:checked ~ .hamIcon
+{
+    display: none;
+}
+
+.Check:checked ~ .closeIcon
+{
+    display: block;
+}
+
+.Check ~ .hamIcon
+{
+    display: block;
+}
+
+.Check ~ .closeIcon
+{
+    display: none;
+}
