@@ -52,6 +52,10 @@ html
 .fot
 {
     grid-area: Fot;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-gray-color);
     background-color:   var(--dark-gray-color)
 }
 
