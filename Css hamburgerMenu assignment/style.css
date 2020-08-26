@@ -1,0 +1,90 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+html
+{
+    height: 100vh;
+}
+
+.check
+{
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    opacity: 0%;
+    left: 10px;
+    z-index: 1000;
+}
+
+.icon
+{
+    width: 40px;
+    height: 6px;
+    background-color: black;
+    border: 1px solid;
+    border-radius: 5px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    margin: 5px;
+
+}
+
+.check:checked ~ .line1
+{
+    opacity: 0%;
+}
+
+
+.check:checked ~ .line2
+{
+    transform: rotate(40deg);
+}
+.check:checked ~ .line3
+{
+    transform: translateY(-13px) rotate(140deg);
+    
+}
+
+.Check:checked ~ul
+{
+    display: flex;
+    transform: translateX(0%);
+    transition: transform 0.5s;
+}
+
+ul
+{
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    opacity: 90%;
+    position: absolute;
+    top: 0%;
+    z-index: 2;
+    background-color: hsl(209, 30%, 60%);
+    transform: translateX(-100%);
+    
+}
+
+ul li
+{
+    padding: 20px;
+}
+li a
+{
+    color: hsl(209, 10%, 100%);
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
