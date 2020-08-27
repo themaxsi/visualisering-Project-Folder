@@ -22,24 +22,41 @@ html
     height: 100vh;
     background-color: var(--main-color);
 }
-
+/* 
 .N
 {
     height: 150px;
+} */
+@keyframes type
+{ 
+    0%   { 
+        transform: translateX(350%); 		
+        }
+        100% { 
+        transform: translateX(0%); 
+        }
+} 
+header h1
+{
+    overflow-x: hidden;
+    margin: auto; 
+    letter-spacing: .15em; 
+    animation:  type 2s;
 }
-
 .Banner
 {
+    overflow-x: hidden;
     grid-area: banner;
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 25px;
     background-color:   var(--light-main-color);
 }
 
 .content
 {
     grid-area: contentBox;
-    
     background-color:   var(--main-color);
 }
 
@@ -82,6 +99,92 @@ html
 
 }
 
+/*Mobil nav*/
+.check
+{
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    top: 170px;
+    opacity: 00%;
+    left: 10px;
+    z-index: 1000;
+}
+
+.icon
+{
+    width: 40px;
+    height: 6px;
+    background-color: black;
+    border: 1px solid;
+    border-radius: 5px;
+    position: relative;
+    top: 0px;
+    left: 10px;
+    z-index: 10;
+    margin: 5px;
+
+}
+
+.check:checked ~ .line1
+{
+    opacity: 0%;
+}
+
+
+.check:checked ~ .line2
+{
+    transform: rotate(40deg);
+}
+.check:checked ~ .line3
+{
+    transform: translateY(-13px) rotate(140deg);
+    
+}
+
+.Check:checked ~ul
+{
+    display: flex;
+    transform: translateX(0%);
+    transition: transform 0.5s;
+}
+
+ul
+{
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    opacity: 90%;
+    position: absolute;
+    top: 0%;
+    z-index: 2;
+    background-color: hsl(209, 30%, 60%);
+    transform: translateX(-100%);
+    
+}
+
+ul li
+{
+    padding: 20px;
+}
+li a
+{
+    color: hsl(209, 10%, 100%);
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+
+
+
 /*Computer version*/
 @media only screen and (min-width: 500px)
 {
@@ -112,4 +215,62 @@ html
             "Fot Fot Fot";
 
     }
+
+    /*nav computer*/
+    
+    .icon, .Check
+    {
+        display: none;
+    }
+
+
+    ul
+    {
+        display: flex;
+        width: auto;
+        height: 40px;
+        opacity: 100%;
+        flex-direction: row;
+        align-content: center;
+        justify-content: left;
+        background-color: none;
+        position: relative;
+        z-index: 2;
+        transform: translateX(0%);
+        border: 1px solid black;
+        
+    }
+
+    li a
+    {
+        color: hsl(209, 10%, 100%);
+        text-decoration: none;
+        font-size: 1rem;
+        display: flex;
+        align-content: center;
+        margin-right: 15px;
+        justify-content: center;
+    }
+
+    ul li
+    {
+        display: inline;
+        align-content: center;
+        justify-content: center;
+        padding: 0px;
+        margin: 10px;
+        
+    }
+    nav ul li
+    {
+        display: block;
+        border-right: 1px solid black;
+        
+
+    }
+    ul li:last-child
+    {
+        border-right: none;
+    }
+
 }
