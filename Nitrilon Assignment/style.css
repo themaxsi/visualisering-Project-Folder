@@ -29,11 +29,13 @@ html
 } */
 @keyframes type
 { 
-    0%   { 
-        transform: translateX(350%); 		
+        0%   
+        { 
+            transform: translateX(350%); 		
         }
-        100% { 
-        transform: translateX(0%); 
+        100%
+        { 
+            transform: translateX(0%); 
         }
 } 
 header h1
@@ -122,7 +124,7 @@ header h1
     top: 0px;
     left: 10px;
     z-index: 10;
-    margin: 5px;
+    margin: 4px;
 
 }
 
@@ -274,3 +276,4 @@ li a
     }
 
 }
+
