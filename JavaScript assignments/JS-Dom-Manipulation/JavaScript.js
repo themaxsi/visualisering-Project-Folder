@@ -107,10 +107,8 @@ console.log("opgave 9")
 
 //---------- Dom 11 --------------
 
-
 var Dp = document.getElementById("deleteme"); 
 Dp.parentNode.removeChild(Dp);
-
 
 console.log("opgave 11")
 
