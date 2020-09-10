@@ -107,16 +107,18 @@ console.log("opgave 9")
 
 //---------- Dom 11 --------------
 
-var demo = document.getElementById("deleteme"); demo.remove()
+
+var Dp = document.getElementById("deleteme"); 
+Dp.parentNode.removeChild(Dp);
+
 
 console.log("opgave 11")
 
 //---------- Dom 12 --------------
 
-var Dp = document.getElementById("deletemetoo"); 
-Dp.parentNode.removeChild(Dp);
+var demo = document.getElementById("deletemetoo"); 
+demo.remove()
 
 console.log("opgave 12")
-
 
 
