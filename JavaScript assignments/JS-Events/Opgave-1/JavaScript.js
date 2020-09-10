@@ -18,7 +18,7 @@ function changecolors() {
 
 function change() 
 {
-    if (x === 1) {
+    if (x == 1) {
         color = "red";
         x = 2;
     } 
