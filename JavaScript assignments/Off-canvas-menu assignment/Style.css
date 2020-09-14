@@ -43,6 +43,80 @@ li
     
 }
 
+/*---- dark theme ----*/
+
+
+
+.dark-mode 
+{
+    background-color: black;
+    color: white;
+
+}
+.Dark-them-slider
+{
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+}
+
+/* for fun */
+
+
+.switch 
+{
+    right: 0px;
+    width: 50px;
+    top: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+  
+.switch div
+{
+    position: relative;
+    display: block;
+    background: #eee;
+    width: 50px;
+    border-radius: 50px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+  
+  .fa-adjust
+{
+    transform: rotate(180deg);
+}
+  
+.switch input 
+{
+    display: none;
+}
+  
+.slider 
+{
+    background-color: #999;
+    transition: 0.4s;
+    border-radius: 34px;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    position: relative;
+}
+  
+input:checked + .slider 
+{
+    transform: translateX(-10px);
+}
+
+
+
+
+/*---------------*/
+
 @media(max-width: 800px)
 {
     .menu-button
@@ -71,4 +145,11 @@ li
     {
         will-change: transform;
     }
+    .switch
+    {
+        top: 0rem;
+    }
 }
+
+
+

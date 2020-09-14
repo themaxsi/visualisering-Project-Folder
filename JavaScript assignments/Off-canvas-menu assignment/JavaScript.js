@@ -15,3 +15,14 @@ button.addEventListener('click', function()
         button.style.backgroundImage = 'url(close-white-18dp.svg)';
     }
 })
+
+
+
+
+var buttonDark = document.querySelector('input');
+
+buttonDark.addEventListener('click', function()
+{
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+})
