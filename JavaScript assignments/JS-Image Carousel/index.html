@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" type="text/css" href="Style.css">
+    </head>
+    <body>
+        <!-- SSC = SlideShowContainer -->
+        <div class="SSC">
+            <div class="SS-inner">
+                <div class="MySlides fade">
+                    <a target="Blank" href="https://www.bmw.dk/da/index.html"> <img src="img\bmw1.jpg" alt="car BMW"></a>
+                </div>
+
+                <div class="MySlides fade">
+                   <a target="Blank" href="https://www.bmw.dk/da/index.html"> <img src="img\bmw2.jpg" alt="car BMW"></a>
+                </div>
+
+                <div class="MySlides fade">
+                    <a target="Blank" href="https://www.bmw.dk/da/index.html"> <img src="img\bmw3.jpg" alt="car BMW"></a>
+                </div>
+                <!-- onclick='plusSlides(1)' -->
+                <!-- onclick='plusSlides(-1)' -->
+                <a class="prev" >&#10094;</a>
+                <a class="next" >&#10095;</a>
+
+
+                <div class="Dot-container">
+                    <span class="dot" onclick='currentSlide(1)'></span>
+                    <span class="dot" onclick='currentSlide(2)'></span>
+                    <span class="dot" onclick='currentSlide(3)'></span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="JavaScript.js"></script>
+    </body>
+
+</html>

@@ -15,7 +15,8 @@ photo.addEventListener('click', function(e) {
         document.querySelector("body").appendChild(div);
         div.addEventListener('click', function(e2)
         {
-            if(e2.target.tagName == 'DIV')
+            //e2.target.tagName == 'DIV' To only target the overlay but not the pic
+            if(div)
             {
                 div.remove();
             }
