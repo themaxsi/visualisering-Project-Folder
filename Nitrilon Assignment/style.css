@@ -60,6 +60,72 @@ header h1
 {
     grid-area: contentBox;
     background-color:   var(--main-color);
+
+    display: grid;
+    height: 100%;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 1fr 0.1fr 1fr 0.1fr 1fr 0.1fr 1fr;
+    grid-template-areas: 
+    "HT1"
+    "texts1"
+    "HT2"
+    "texts2"
+    "HT3"
+    "texts3"
+    "HT4"
+    "texts4";
+        
+}
+
+.headline1, .headline2, .headline3, .headline4
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headline1
+{
+    grid-area: HT1;
+}
+.headline2
+{
+    grid-area: HT2;
+}
+.headline3
+{
+    grid-area: HT3;
+}
+.headline4
+{
+    grid-area: HT4;
+}
+
+.text1, .text2, .text3, .text4
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.text1
+{
+    grid-area: texts1;
+    
+}
+.text2
+{
+    grid-area: texts2;
+}
+.text3
+{
+    grid-area: texts3;
+}
+.text4
+{
+    grid-area: texts4;
 }
 
 .menu1
@@ -274,6 +340,30 @@ li a
     {
         border-right: none;
     }
+    /* ---------- */
+
+    .content
+    {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.2fr 1fr 0.2fr 1fr;
+        grid-template-areas: 
+        "HT1 HT2"
+        "texts1 texts2"
+        "HT3 HT4"
+        "texts3 texts4";
+
+        /* margin: 25px; */
+    }
+    
+    /* .headline1, .headline2, .headline3, .headline4
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    } */
+
+
 
 }
 
