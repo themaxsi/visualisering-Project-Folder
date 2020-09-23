@@ -1,0 +1,189 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+:root
+{
+    --main-hue: 211;
+    --main2-hue: 38;
+
+    --main-color: hsl(var(--main-hue), 46%, 77%);
+    --light-main-color: hsl(var(--main-hue), 36%, 100%);
+    --dark-main-color: hsl(var(--main-hue), 56%, 47%);
+    --dark-gray-color: hsl(var(--main2-hue), 3%, 36%);
+    --light-color: hsl(var(--main2-hue), 0%, 91%);
+
+}
+
+html
+{
+    height: 100vh;
+}
+.ImgCar
+{
+    display: none;
+}
+
+
+
+/*Grid*/
+
+
+
+/*Hamburger menu Styling*/
+
+nav ul
+{
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    opacity: 90%;
+    position: absolute;
+    top: 0%;
+    z-index: 2;
+    background-color: hsl(209, 30%, 60%);
+    transform: translateX(-100%);
+    
+}
+
+.check
+{
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    opacity: 0%;
+    left: 10px;
+    z-index: 1000;
+}
+
+.icon
+{
+    width: 40px;
+    height: 6px;
+    background-color: black;
+    border: 1px solid;
+    border-radius: 5px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    margin: 5px;
+
+}
+
+.check:checked ~ .line1
+{
+    opacity: 0%;
+}
+
+
+.check:checked ~ .line2
+{
+    transform: rotate(40deg);
+}
+.check:checked ~ .line3
+{
+    transform: translateY(-13px) rotate(140deg);
+    
+}
+
+.check:checked ~nav ul
+{
+    display: flex;
+    transform: translateX(0%);
+    transition: transform 0.5s;
+}
+
+
+
+nav ul li
+{
+    padding: 8px;
+}
+nav li a
+{
+    color: hsl(209, 10%, 100%);
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+/*-----*/
+
+
+
+
+@media only screen and (min-width: 500px)
+{
+
+    .ImgCar
+    {
+        display: block;
+    }
+    /*nav*/
+    .icon, .Check
+    {
+        display: none;
+    }
+
+
+    nav ul
+    {
+        display: flex;
+        width: auto;
+        height: 40px;
+        opacity: 100%;
+        flex-direction: row;
+        align-content: center;
+        justify-content: left;
+        background-color: none;
+        position: relative;
+        z-index: 2;
+        transform: translateX(0%);
+        border: 1px solid black;
+        
+    }
+
+    li a
+    {
+        color: hsl(209, 10%, 100%);
+        text-decoration: none;
+        font-size: 1rem;
+        display: flex;
+        align-content: center;
+        margin-right: 10px;
+        justify-content: center;
+    }
+
+    ul li
+    {
+        display: inline;
+        align-content: center;
+        justify-content: center;
+        padding: 0px;
+        margin: 5px;
+        
+    }
+    nav ul li
+    {
+        display: block;
+        border-right: 1px solid black;
+        
+
+    }
+    ul li:last-child
+    {
+        border-right: none;
+    }    
+    /*----*/
+
+}
