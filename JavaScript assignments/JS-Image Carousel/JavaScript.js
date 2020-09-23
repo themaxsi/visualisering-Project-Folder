@@ -103,11 +103,3 @@ RClick.addEventListener('click', function()
     plusSlides(1);
 })
 
-// var dotClick = document.getElementsByClassName("dot");
-
-// // var l = currentSlide.n;
-
-// dotClick.addEventListener('Click',function()
-// {
-    
-// })
