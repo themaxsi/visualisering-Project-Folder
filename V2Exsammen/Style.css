@@ -1,3 +1,4 @@
+
 *
 {
     margin: 0px;
@@ -10,26 +11,168 @@
     --main2-hue: 38;
 
     --main-color: hsl(var(--main-hue), 46%, 77%);
-    --light-main-color: hsl(var(--main-hue), 36%, 100%);
+    --light-main-color: hsl(var(--main-hue), 36%, 80%);
     --dark-main-color: hsl(var(--main-hue), 56%, 47%);
     --dark-gray-color: hsl(var(--main2-hue), 3%, 36%);
     --light-color: hsl(var(--main2-hue), 0%, 91%);
-
 }
+
+
 
 html
 {
+    width: 100vw;
     height: 100vh;
+    font-family: 'Noticia Text', serif;
+    overflow-x: hidden;
 }
 .ImgCar
 {
     display: none;
 }
+h1
+{
+    font-family: 'Lato', sans-serif;
+}
+
+/* introduktionsteksten Area */
+
+.mainItem2 
+{
+    
+    width: 100%;
+    display: flex;
+    padding: 10px 0px 0px 40px;
+}
+.mainItem2 h1,.mainItem2 p
+{
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.mainItem2 h1
+{
+    font-size: 1.5rem;
+}
+/*Blog link area*/
+
+.mainItem3
+{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+
+/*header banner img*/
+
+header
+{
+    width: 100%;
+}
+
 
 
 
 /*Grid*/
 
+/*main grids item*/
+.mainItem1
+{
+    grid-area: gridCar;
+    width: 100%;
+}
+.mainItem2
+{
+    grid-area: gridInfo;
+    width: 100%;
+}
+.mainItem3
+{
+    grid-area: gridBlog-link;
+}
+
+/*items for container*/
+.Item1
+{
+    grid-area: gridHead;
+}
+.Item2
+{
+    grid-area: gridMain;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 0.fr 1fr;
+    grid-template-areas:
+    "gridCar"
+    "gridInfo"
+    "gridBlog-link";
+}
+.Item3
+{
+    grid-area: gridFoot;
+}
+
+.Container
+{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 2fr 0.5fr;
+    grid-template-areas: 
+        "gridHead"
+        "gridMain"
+        "gridFoot";
+}
+
+
+/*Footer*/
+
+footer, .Phone, .Mail, .Open, .Insta
+{
+    background-color: var(--dark-gray-color);
+    height: 40px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--light-color);
+    font-size: 0.8rem;
+}
+footer
+{
+    width: 100%;
+}
+
+
+
+.Insta a
+{
+    text-decoration: none;
+    color: var(--light-main-color);
+}
+
+footer p, footer h4, footer a
+{
+    align-self: center;
+}
+footer img
+{
+    height: 30px;
+}
+
+.Open
+{
+    display: none;
+}
 
 
 /*Hamburger menu Styling*/
@@ -42,7 +185,7 @@ nav ul
     align-content: center;
     justify-content: center;
     height: 100vh;
-    width: 100vw;
+    width: 101%;
     opacity: 90%;
     position: absolute;
     top: 0%;
@@ -73,7 +216,7 @@ nav ul
     position: relative;
     top: 10px;
     left: 10px;
-    z-index: 10;
+    z-index: 20;
     margin: 5px;
 
 }
@@ -102,7 +245,6 @@ nav ul
 }
 
 
-
 nav ul li
 {
     padding: 8px;
@@ -122,14 +264,20 @@ nav li a
 
 
 
-@media only screen and (min-width: 500px)
+@media only screen and (min-width: 600px)
 {
+
+
+    
 
     .ImgCar
     {
         display: block;
     }
-    /*nav*/
+
+
+
+    /*-------------- nav -----------*/
     .icon, .Check
     {
         display: none;
@@ -153,7 +301,7 @@ nav li a
         
     }
 
-    li a
+    nav li a
     {
         color: hsl(209, 10%, 100%);
         text-decoration: none;
@@ -184,6 +332,15 @@ nav li a
     {
         border-right: none;
     }    
-    /*----*/
+    /*Footer*/
+
+    .Open
+    {
+        display: flex;
+    }
+
+    /**/
+
+
 
 }
