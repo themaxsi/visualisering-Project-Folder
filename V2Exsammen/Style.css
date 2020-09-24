@@ -4,7 +4,7 @@
     margin: 0px;
     padding: 0px;
 }
-
+/*have done a few adjustment on the colors becuese the did not look so good once they where on the web page*/
 :root
 {
     --main-hue: 211;
@@ -12,9 +12,11 @@
 
     --main-color: hsl(var(--main-hue), 46%, 77%);
     --light-main-color: hsl(var(--main-hue), 36%, 80%);
-    --dark-main-color: hsl(var(--main-hue), 56%, 47%);
-    --dark-gray-color: hsl(var(--main2-hue), 3%, 36%);
+    --dark-main-color: hsl(var(--main-hue), 56%, 37%);
+    --dark-gray-color: hsl(var(--main2-hue), 3%, 18%);
+    --mini-dark-gray-color: hsl(var(--main2-hue), 3%, 23%);
     --light-color: hsl(var(--main2-hue), 0%, 91%);
+    --black-color: hsl(var(--main2-hue), 3%, 5%);
 }
 
 
@@ -25,6 +27,13 @@ html
     height: 100vh;
     font-family: 'Noticia Text', serif;
     overflow-x: hidden;
+    background-color: var(--main-color);
+    color: var(--black-color);
+    font-size: 1rem;
+}
+a
+{
+    color: var(--dark-gray-color);
 }
 .ImgCar
 {
@@ -35,6 +44,12 @@ h1
     font-family: 'Lato', sans-serif;
 }
 
+
+
+a:hover
+{
+    color: var(--dark-main-color);
+}
 /* introduktionsteksten Area */
 
 .mainItem2 
@@ -63,8 +78,14 @@ h1
     display: flex;
     align-content: center;
     justify-content: center;
+    margin: 20px 0px 20px 0px;
+    
 }
 
+.mainItem3 a, .mainItem3 img
+{
+    margin: 20px 0px 20px 0px;
+}
 
 
 /*header banner img*/
@@ -72,8 +93,12 @@ h1
 header
 {
     width: 100%;
+    
 }
-
+.headImg
+{
+    display: none;
+}
 
 
 
@@ -88,7 +113,6 @@ header
 .mainItem2
 {
     grid-area: gridInfo;
-    width: 100%;
 }
 .mainItem3
 {
@@ -108,7 +132,7 @@ header
     width: 100%;
     
     grid-template-columns: 1fr;
-    grid-template-rows: 0fr 0.fr 1fr;
+    grid-template-rows: 0fr 0.1fr 1fr;
     grid-template-areas:
     "gridCar"
     "gridInfo"
@@ -118,6 +142,7 @@ header
 {
     grid-area: gridFoot;
 }
+
 
 .Container
 {
@@ -177,6 +202,14 @@ footer img
 
 /*Hamburger menu Styling*/
 
+.navImg
+{
+    background-color: var(--mini-dark-gray-color);
+    border-radius: 100%;
+    
+}
+
+
 nav ul
 {
     display: flex;
@@ -184,14 +217,15 @@ nav ul
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    height: 100vh;
-    width: 101%;
+    height: 100%;
+    width: 100%;
     opacity: 90%;
     position: absolute;
-    top: 0%;
+    top: 0px;
     z-index: 2;
-    background-color: hsl(209, 30%, 60%);
+    background-color: var(--dark-gray-color);
     transform: translateX(-100%);
+    
     
 }
 
@@ -257,7 +291,9 @@ nav li a
     display: flex;
     align-content: center;
     justify-content: center;
+    
 }
+
 
 /*-----*/
 
@@ -267,21 +303,145 @@ nav li a
 @media only screen and (min-width: 600px)
 {
 
+    /*grid*/
+    html
+    {
+        font-size: 1.2rem;
+    }
+    
+    .Container
+    {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+            "gridHead gridHead gridHead gridHead"
+            "gridMain gridMain gridMain gridMain"
+            "gridFoot gridFoot gridFoot gridFoot";
+    }
+
+    .Item2
+    {
+        grid-area: gridMain;
+        display: grid;
+        height: 100%;
+        width: 100%;
+        
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.25fr 0.1fr 1fr;
+        grid-template-areas:
+        "gridCar gridCar gridCar gridCar"
+        "gridInfo gridInfo gridInfo gridInfo"
+        "gridBlog-link gridBlog-link gridBlog-link gridBlog-link";
+    }
 
     
+    /*header*/
+    .headImg
+    {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .navImg
+    {
+        display: none;
+    }
 
-    .ImgCar
+    /*Blog link area*/
+
+    .mainItem3
+    {
+        display: flex;
+        align-content: center;
+        justify-content: left;
+        padding-left: 40px;
+        margin: 20px;
+    }
+    .mainItem3 a, .mainItem3 img
+    {
+        display: flex;
+        margin: 20px 20px 20px 0px;
+        background-color: var(--light-main-color);
+        height: 400px;
+    }
+    .mainItem3 a{align-items: center;}
+    .mainItem3 img{width: 500px;}
+    .mainItem3 article
+    {
+        width: 100%;
+    }
+    
+    
+    /*Footer*/
+    .Open
+    {
+        display: flex;
+    }
+
+    /*img car*/
+
+    .mainItem1
     {
         display: block;
     }
 
+    .ImgCar
+    {
+        display: block;
+        max-width: 100%;
+        transform: translateX(100%);
+        position: absolute;
+        transition: 1s;
+        opacity: 0;
+    }
+    .left
+    {
+        transform: translateX(-100%);
+        z-index: 2;
+        opacity: 0;
+    }
+    .center
+    {
+        transform: translateX(0);
+        z-index: 3;
+        opacity: 1;
+    }
+    aside
+    {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        position: fixed;
+        z-index: 4;
+        bottom: 0;
+    }
+    /* div{
+        margin: 0.5rem;
+        width: 25px;
+        height: 25px;
+        background-color: hsl(0, 0%, 70%);
+        border-radius: 25px; 
+    }*/
+    /* .picket{
+         background-color: hsl(0, 0%, 42%);
+    } */
+
+
 
 
     /*-------------- nav -----------*/
-    .icon, .Check
+    .icon, .check
     {
         display: none;
+        opacity: 0%;
     }
+
+
 
 
     nav ul
@@ -293,7 +453,7 @@ nav li a
         flex-direction: row;
         align-content: center;
         justify-content: left;
-        background-color: none;
+        
         position: relative;
         z-index: 2;
         transform: translateX(0%);
@@ -317,14 +477,13 @@ nav li a
         display: inline;
         align-content: center;
         justify-content: center;
-        padding: 0px;
         margin: 5px;
         
     }
     nav ul li
     {
         display: block;
-        border-right: 1px solid black;
+        border-right: 1px solid white;
         
 
     }
@@ -332,15 +491,5 @@ nav li a
     {
         border-right: none;
     }    
-    /*Footer*/
-
-    .Open
-    {
-        display: flex;
-    }
-
-    /**/
-
-
 
 }
