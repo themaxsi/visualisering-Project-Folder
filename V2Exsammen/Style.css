@@ -151,7 +151,7 @@ header
     width: 100%;
     
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 2fr 0.5fr;
+    grid-template-rows: 0.0fr 2fr 0.1fr;
     grid-template-areas: 
         "gridHead"
         "gridMain"
@@ -175,6 +175,13 @@ footer, .Phone, .Mail, .Open, .Insta
 footer
 {
     width: 100%;
+    position: sticky;
+    z-index: 50;
+}
+footer img
+{
+    background-color: white;
+    border-radius: 40%;
 }
 
 
@@ -295,10 +302,35 @@ nav li a
 }
 
 
+
 /*-----*/
+.contact
+    {
+        display: flex;
+        align-items: center;
+        margin-left: 50px;
+    }
+    .contact p, .contact h1
+    {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
 
+/*health*/
 
-
+.health
+{
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+.health img
+{
+    height: 250px;
+    width: 400px;
+}
 
 @media only screen and (min-width: 600px)
 {
@@ -316,7 +348,7 @@ nav li a
         width: 100%;
         
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 0.1fr 1fr 0.01fr;
         grid-template-areas: 
             "gridHead gridHead gridHead gridHead"
             "gridMain gridMain gridMain gridMain"
@@ -331,7 +363,7 @@ nav li a
         width: 100%;
         
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 0.25fr 0.1fr 1fr;
+        grid-template-rows: 0.4fr 0.1fr 1.2fr;
         grid-template-areas:
         "gridCar gridCar gridCar gridCar"
         "gridInfo gridInfo gridInfo gridInfo"
@@ -474,7 +506,7 @@ nav li a
 
     ul li
     {
-        display: inline;
+        display: block;
         align-content: center;
         justify-content: center;
         margin: 5px;
@@ -491,5 +523,64 @@ nav li a
     {
         border-right: none;
     }    
+
+
+    /*dots*/
+    
+    section.mainItem1 div{
+        position: relative;
+        margin-top: 35vw;
+        width: 100%;
+        z-index: 4;
+        display: flex;
+        justify-content: center;
+        
+    }
+    section.mainItem1 div div{
+        width: 25px;
+        height: 25px;
+        margin: 0 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        border-style: none;
+        background-color: var(--main-color);
+    }
+    section.mainItem1 div.picked{
+        background-color: var(--dark-main-color);
+    }
+    /*contact*/
+
+    .contact
+    {
+        display: flex;
+        align-items: center;
+        margin-left: 50px;
+    }
+    .contact p, .contact h1
+    {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+    /*health*/
+
+    .health
+    {
+        width: 85%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px;
+    }
+    .health p, .health h1, .health h2,  .health h3
+    {
+        margin: 10px;
+    }
+    .health img
+    {
+        margin-left: 10px;
+        height: 400px;
+        width: 600px;
+    }
+
 
 }
