@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Domine:400,700|Vast+Shadow');
+
+
+@mixin button_normal($textColor , $backgroundColor, $borderColor)
+{
+	display: inline-block;
+	padding: 4px 16px 2px 16px;	
+	border-radius: 8px;
+	font-size: .9em;
+	border: 1px solid $borderColor;
+	text-decoration: none;
+	background-color: $backgroundColor;
+	color: $textColor;
+	&:after
+	{
+		content: '\25BA';
+		padding-left: 6px;
+		font-size: 0.8rem;
+		opacity: 0.7;
+	}
+}
+
+@mixin button_hover($textColor, $backgroundColor)
+{
+	color: $textColor;
+	background-color: $backgroundColor;
+}
+
+body 
+{
+	margin: 0;
+	padding: 0;
+	background-color: #fcf8d3;
+	font-family: 'Domine', serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.3em;
+	color: #403018;
+}
+
+header 
+{
+	margin: 0; height: 125px; position: relative;
+	background: #666764 url(images/banner.jpg) no-repeat 0 0;
+	background-color: #35201b;
+	box-shadow: 0px 2px 10px rgba(0,0,0,.3);
+	//border-bottom: 1px solid #aaa; 
+}
+
+header h1
+{
+	font-family: 'Vast Shadow', cursive;
+	font-weight: 700;
+	font-size: 4em; color: #fff;
+	text-transform: uppercase;
+	padding: 0; margin: 0;
+	position: absolute; bottom: 25px; left: 30px;
+	text-shadow: 0px 2px 3px rgba(0,0,0,.4);
+}
+
+main { margin: 35px 25px; }
+
+article 
+{
+	width: calc(100% - 240px);
+	float: left;
+	a.btn
+	{
+		@include button_normal(#fff, #9ba122, #9ba122);
+		&:hover
+		{
+			@include button_hover(#000, #fff)
+		}
+	}
+}
+			
+aside 
+{
+	width: 170px;
+	float: right;
+	background-color: #4f9105;
+	border-radius: 20px;
+	padding: 10px 20px 25px 25px;
+	color: #fff;
+	a.btn 
+	{
+		@include button_normal(#568801, #fff, #fff);
+		&:hover
+		{
+			@include button_hover(#fff, rgba(255,255,255,0.3))
+		}
+	}
+}
+
+
+
+h2 
+{
+	font-size: 1.5em;
+	margin: 25px 0 .2em 0;
+	line-height: 1.2em;
+}
+
+h3 
+{
+	font-size: 1.3em;
+	margin: 10px 0 8px 0;
+}
+
+p { margin: 0 0 .7em 0; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
