@@ -6,7 +6,8 @@ $color_1: #ffd000;
 $color_2: adjust-hue($color_1, 10%);
 $color_3: adjust-hue($color_1, 180%);
 
-body {
+body 
+{
 	font-family: 'Droid Sans', sans-serif;
 	font-size: 16px;
 	line-height: 1.3em;
@@ -17,7 +18,8 @@ body {
 	color: $color_1;
 }
 
-h1 {
+h1 
+{
 	font-family: 'Oswald', sans-serif;
 	text-transform: uppercase;
 	color: darken(#fff, $amount: 10%);
@@ -36,7 +38,8 @@ main { margin: 0 auto; padding: 20px 45px; font-size: 16px; background-color: #f
 
 main::after { content:''; display: block; clear: both; }
 
-header {
+header 
+{
 	height: 150px;
 	background: $color_1 url(images/banner.png) no-repeat center top;
 	position: relative;
@@ -46,7 +49,8 @@ article { width: 65%; float: left; }
 
 article > div { padding: 15px; }
 
-aside {
+aside 
+{
 	width: 30%;
 	float: left;
 	margin: 50px 0px 0px 3%;
@@ -54,30 +58,35 @@ aside {
 	line-height: 1.2em;
 }
 
-aside > div {
+aside > div 
+{
 	background-color: rgba($color_3, $alpha: 0.1);
 	padding: 10px 15px;
 	border: 1px solid $color_3;
 	color: $color_3;
 }
 
-aside > div h3 {
+aside > div h3 
+{
 	background-color: $color_3;
 	color: #fff;
 	margin: -10px -15px 15px -15px;
 	padding: 8px 5px 12px 15px;
 }
 
-.bar {
+.bar 
+{
 	width: 100%;
 	height: 15px;
 	background-color: scale-color($color_2, $lightness: -50%);
-}
 
-.bar div {
-	width: 50%;
-	height: inherit;
-	background-color: lighten($color_2, $amount: 10%);
+	div
+	{
+		width: 50%;
+		height: inherit;
+		background-color: lighten($color_2, $amount: 10%);
+	}
+	
 }
 
 
