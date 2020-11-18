@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Ubuntu:wght@300&display=swap');
+/*Fonts*/
+$Font-Main: 'PT Sans Narrow', sans-serif;
+$Font-Headings: 'Ubuntu', sans-serif;
+/*Colors*/
+$color-bg: hsl(40,43%,82%);
+$color-heading: hsl(220,43%,30%);
+
+
+
+
+
+//Mixins
+
+@mixin imagegrid1($columns, $margins)
+{
+    $temp: (( 100% - ($margins * ($columns - 1)))  / $columns);
+    &:nth-child(n)
+    {
+        width: $temp;
+        margin-bottom: $margins;
+        margin-right: $margins;
+    }
+    &:nth-child(#{$columns}n)
+    {
+        margin: 0;
+    }
+}
+
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body 
+{
+	padding: 1rem;
+    font-family: $Font-Main;
+    background-color: $color-bg;
+
+}
+h1
+{
+    font-family: $Font-Headings;
+    color: $color-heading;
+    padding-bottom: 2rem;
+}
+
+.ImageGrid
+    {   
+        
+        .Item
+        {
+            @include imagegrid1(3, 1%);
+            float: left;
+            
+        }
+        img
+        {
+            border-radius: 15px;
+            max-width: 100%;
+        }
+    }
+
+@media only screen and (min-width: 600px)
+{
+    .ImageGrid
+    {    
+        .Item
+        {
+            @include imagegrid1(7, 2%);
+        }
+       
+    }
+}
