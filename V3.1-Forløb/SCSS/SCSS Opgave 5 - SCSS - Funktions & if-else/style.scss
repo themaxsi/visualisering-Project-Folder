@@ -1,0 +1,104 @@
+
+/*Set total of boxes*/
+$total: 5;
+/*Colors*/
+$blue: hsl(202,74%,64%);
+
+//margin & columns desktop
+$columns-main-desk: 5;
+$margin-main-desk: 2%; 
+//margin & columns mobil
+$columns-main-mobil: 3;
+$margin-main-mobil: 3%; 
+
+
+//Mixins
+
+@mixin box($temp-height, $temp-width, $temp-backgroundColor)
+{
+    height: $temp-height;
+    width: $temp-width;
+    background-color: $temp-backgroundColor;
+}
+
+
+@mixin imagegrid($columns, $margins)
+{
+    $temp: (( 100% - ($margins * ($columns - 1)))  / $columns);
+    &:nth-child(n)
+    {
+        width: $temp;
+
+        margin-bottom: $margins;
+        margin-right: $margins;
+    }
+    &:nth-child(#{$columns}n)
+    {
+        margin: 0;
+    }
+}
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    height: 100vh;
+    margin: 10px;
+}
+
+@function fancyColor($color, $increase)
+{
+    $temp: darken($color, (5% * $increase));
+    @return $temp;
+}
+
+@function calculateWidth($margins, $columns)
+{
+    @return (( 100% - ($margins * ($columns - 1)))  / $columns);
+}
+
+
+.Kasser
+    {
+        height: 100%;
+        @for $i from 1 through $total
+        {
+            .kasse-#{$i}
+            {
+                $backgroundColor: fancyColor($blue, $i);
+                $temp-height-width: calculateWidth($margin-main-mobil, $columns-main-mobil);
+                @include imagegrid( $columns-main-mobil, $margin-main-mobil);
+                @include box($temp-height-width, $temp-height-width, $backgroundColor);
+                
+                float: left;
+            }
+        }
+    }
+
+
+@media only screen and (min-width: 600px)
+{
+    .Kasser
+    {
+        
+        @for $i from 1 through $total
+        {
+            .kasse-#{$i}
+            {
+                // $backgroundColor: fancyColor($blue, $i);
+                // $temp-height-width: calculateWidth($margin-main-desk, $columns-main-desk);
+                @include imagegrid( $columns-main-desk, $margin-main-desk);
+                // @include box($temp-height-width, $temp-height-width, $backgroundColor);
+                float: left;
+                max-height: 100%;
+            }
+        }
+    }
+}
+
+
