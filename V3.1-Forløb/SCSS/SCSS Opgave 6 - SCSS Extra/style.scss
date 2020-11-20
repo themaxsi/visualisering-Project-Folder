@@ -1,0 +1,217 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+//colors
+$Black-Color: hsl(0, 8%, 5%);
+$Yellow-Color: hsl(60, 100%, 60%);
+$Gray-Text-Color: hsl(0, 0%, 50%);
+$Gray-Background-Color: hsl(0, 0%, 83%);
+
+$font-size: 42px;
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+/*calculates the size of the boxes for category*/
+@function calculateSize($margins, $columns)
+{
+    @return (( 100% - ($margins * ($columns - 1)))  / $columns);
+}
+/*gives height/width for the boxes in category*/
+@mixin box($temp-size)
+{
+    height: $temp-size;
+    width: $temp-size;
+}
+
+/*used for making the layout of the bike category*/
+@mixin Image-Layout($columns, $margins)
+{
+    &:nth-child(n)
+    {
+        margin-bottom: $margins;
+        margin-right: $margins;
+    }
+    &:nth-child(#{$columns}n)
+    {
+        margin: 0;
+    }
+}
+
+/*used for giving the h tags there size and to uppercase*/
+@for $i from 1 through 4 
+{
+    h#{$i}
+    {
+        font-size: $font-size - (6 * $i);
+        text-transform: uppercase;
+        font-family: 'Open Sans', sans-serif;
+    }
+}
+/*used for assigning grid area for the main parts of the website*/
+@for $i from 1 through 4 
+{
+    .Main-#{$i}
+    {
+        grid-area: MainArea-#{$i};
+    }
+}
+/*used for assigning grid area for the header and nav parts of the website*/
+@for $i from 1 through 3 
+{
+    .head-#{$i}
+    {
+        grid-area: HeadArea-#{$i};
+    }
+}
+
+/*used for assigning grid area for the Info parts of the website*/
+@for $i from 1 through 2 
+{
+    .info-#{$i}
+    {
+        grid-area: InfoArea-#{$i};
+    }
+}
+/*standard css for a tags*/
+a
+{
+    color: $Black-Color;
+    text-decoration: none;
+}
+/*standard image css*/
+img
+{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*font size for nav and p tag*/
+p, nav
+{
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/*Layout for main parts of website*/
+.container
+{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr 0.1fr;
+    grid-template-areas: 
+        "MainArea-1"//Header/nav
+        "MainArea-2"//bike category
+        "MainArea-3"//info
+        "MainArea-4";//footer
+}
+
+/*Layout for bike view*/
+.Main-2
+{
+    height: 100%;
+    @for $i from 1 through 8 
+    {
+        .Bike-category-#{$i}
+        {
+            $temp-size: calculateSize(2%, 4);
+            @include box($temp-size);
+            @include Image-Layout(4, 2%);
+            text-align: center;
+            float: left;
+        }
+    }
+}
+
+/*layout for nav/header*/
+.Main-1
+{
+    display: grid;
+    height: 100%;
+    width: 100%;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.1fr 0.1fr 1fr ;
+    grid-template-areas: 
+        "HeadArea-1"//Logo
+        "HeadArea-2"//Nav
+        "HeadArea-3"//front page pic
+}
+/*Logo css*/
+.head-1
+{
+    background-color: $Black-Color;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+/*nav layout*/
+.head-2
+{
+    ul 
+    {
+        background-color: $Yellow-Color;
+        display: flex;
+        li
+        {
+            padding: 5px;
+            display: flex;
+            margin: 5px;
+            padding-right: 15px;
+            align-content: center;
+            justify-content: left;
+            border-right:  1px solid $Black-Color;
+        }
+        li:first-child
+        {
+            padding-left: 7%;
+        }
+        li:last-child
+        {
+            padding-right: 7%;
+            border-right: none;
+        }
+        li:nth-child(4)
+        {
+            border-right: none;
+        }
+        .push
+        {
+            margin-left: auto;
+        }
+    }
+    
+}
+
+
+/*info layout*/
+
+.Main-3
+{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    background-color: $Gray-Background-Color;
+    grid-template-columns: .6fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "InfoArea-1 InfoArea-2";//video | Info text 
+        
+    
+    .info-2
+    {
+        display: block;
+        margin: 5% 5% 5% 0;
+    }
+    
+    
+}
+
