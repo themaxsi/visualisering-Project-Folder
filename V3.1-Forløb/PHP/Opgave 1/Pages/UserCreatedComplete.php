@@ -3,14 +3,14 @@ if(!isset($_SESSION))
 {
     session_start();
 }
-if(isset($_POST["username"]))
+if(isset($_POST))
 {
-    $_SESSION["Post-Data-login"] = $_POST;
+    $_SESSION["Post-Data"] = $_POST;
 }
 
-if(isset($_SESSION["Post-Data-login"])) 
+function userCreatedComplete()
 {
-    header("Location: ../index.php");
+    
 }
 
 
@@ -39,7 +39,6 @@ if(isset($_SESSION["Post-Data-login"]))
 
         <nav class="Area-nav">
             <ul>
-                <li><a href="../index.php">Front page</a></li>
                 <li><a href="#1">My account</a></li>
                 <li><a href="#2">shopping cart</a></li>
                 <li><a href="#3">info</a></li>
@@ -47,27 +46,10 @@ if(isset($_SESSION["Post-Data-login"]))
         </nav>
     </header>
         
-    <main class="loginMain">
+    <main class="">
         <section>
-            <form class="loginFrom" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-                <div class="containerLogin">
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="username" required>
-
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
-
-                     <button name="login-submit" type="submit">Login</button>
-                    <label >
-                        <input type="checkbox" name="remember"> Remember me
-                    </label>
-                </div>
-
-                <div class="containerLogin">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <span class="password">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
+            <br>
+            <?php echo userCreatedComplete()  ?>
         </section>
     </main>
 

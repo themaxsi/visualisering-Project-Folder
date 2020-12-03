@@ -1,4 +1,11 @@
 <?php 
+if(!isset($_SESSION))
+{
+    session_start();
+}
+
+
+
 $minChangeColor = date('i');            //<?php echo $minChangeColor
 $monthForCheck = date('m');             //<?php echo $monthForCheck
 
@@ -124,9 +131,29 @@ function CheckMonthsAndWriteText()
 }
 
 
+function loginBox()
+{
+    print_r($_SESSION);
 
+    if(isset($_SESSION["Post-Data-login"]))
+    {
+        
+    }
 
+    // return("<p>you are logged in as {$_SESSION["Post-Data-login"]["username"]}</p>");
+}
 
+function logoutButton()
+{
+    if(isset($_SESSION["Post-Data-login"]))
+    {
+        return("<li><a href='Pages/logout.php'>Logout</a></li>");
+    }
+    else
+    {
+        return("<li><a href='Pages/login.php'>Login</a></li>");
+    }
+}
 
 ?>
 <!doctype html>
@@ -147,15 +174,17 @@ function CheckMonthsAndWriteText()
     <img class="icon" src="images/twitter-icon.svg" alt="twitter icon">
     <img class="icon" src="images/shopping-cart-icon.svg" alt="shopping cart icon">
 
-    <!-- <img src="images/<php echo CheckMonths($monthForCheck)?>" alt="banner/logo"> -->
+    <img class="banner" src="images/BannerPic2.jpg" alt="banner/logo">
 
-    
+       
 
         <nav class="Area-nav">
             <ul>
+                <li><a href="../index.php">Front page</a></li>
                 <li><a href="Pages\login.php">My account</a></li>
                 <li><a href="#2">shopping cart</a></li>
                 <li><a href="#3">info</a></li>
+                <?php echo logoutButton()?>
             </ul>
         </nav>
     </header>
@@ -165,18 +194,21 @@ function CheckMonthsAndWriteText()
 
             <!-- <pre><//?php echo CheckMonthsAndWriteText?></pre> -->
 
+            <div Class="loggedInBox">
+              <pre><?php echo loginBox()?></pre>
+            </div>
+            <pre><?php print_r($_POST);?></pre>
 
 
 
 
-
-        <div class="newsBox">
-            <form action="../Opgave 1/Pages/LoginComplete.php">
+        <!-- <div class="newsBox">
+            <form class="newsBoxForm" action="../Opgave 1/Pages/SignUpNewsCompelet.php" method="post">
                 <div class="NewsLetter">
                     <h2>Subscribe to our Newsletter</h2>
                 </div>
 
-                <div class="NewsLetter" style="background-color:white">
+                <div class="NewsLetter" >
                     <input type="text" placeholder="First name" name="firstName" required> <br>
                     <input type="text" placeholder="Last name" name="lastName" required>   <br>
                     <input type="text" placeholder="Email address" name="mail" required>   <br>
@@ -186,10 +218,10 @@ function CheckMonthsAndWriteText()
                 </div>
 
                 <div class="NewsLetter">
-                    <input type="submit" value="Subscribe" >
+                    <input type="submit" name="submit" value="Subscribe" >
                 </div>
             </form>
-            </div>
+        </div> -->
         </section>
     </main>
 

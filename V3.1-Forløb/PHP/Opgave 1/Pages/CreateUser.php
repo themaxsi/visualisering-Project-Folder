@@ -1,5 +1,8 @@
 <?php
-
+if(!isset($_SESSION))
+{
+    session_start();
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,7 +14,7 @@
 		<link type="text/css" rel="stylesheet" href="../style.css">
 	 </head>
     <!-- <body class="Container <?php// echo checkNumber($minChangeColor)?> "> used to change background color depending on if the min is even or odd  -->
-    <body class="container">
+    <body class="containerCreate">
     <header>
     <img class="icon" src="../images/user-icon.svg" alt="user icon">
     <img class="icon" src="../images/facebook-icon.svg" alt="Facebook icon">
@@ -25,6 +28,7 @@
 
         <nav class="Area-nav">
             <ul>
+                <li><a href="../index.php">Front page</a></li>
                 <li><a href="#1">My account</a></li>
                 <li><a href="#2">shopping cart</a></li>
                 <li><a href="#3">info</a></li>
@@ -37,10 +41,9 @@
     <main class="crateMain">
         <section>
             
-        <form method="post">
-            <div class="formContainer">
+        <form method="post" action="UserCreatedComplete.php">
+            <div class="formContainerCreate">
                 <h1>Sign Up Form</h1>
-                <hr>
 
                     <!-- email -->
                     <label for="email"><b>Email</b></label>
@@ -93,23 +96,31 @@
                     <input type="text" placeholder="Enter phone Number*" name="phoneNumber" required>
 
                     <!-- gender -->
-
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="male">Male</label><br>
-                    <input type="radio" id="female" name="gender" value="female">
-                    <label for="female">Female</label><br>
-                    <input type="radio" id="NoneBinary" name="gender" value="NoneBinary">
-                    <label for="other">None binary</label>
-
+                    <div class="genderArea">
+                        <div>
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label class="genderColor" for="male">Male</label><br>
+                        </div>
+                        <div>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label class="genderColor" for="female">Female</label><br>
+                        </div>
+                        <div>
+                            <input type="radio" id="NoneBinary" name="gender" value="NoneBinary">
+                            <label class="genderColor" for="other">None binary</label> <br>
+                        </div>
+                    </div>
 
                     <!-- age -->
 
-                    
+                    <label for="age"><b>age</b></label>
+
+                    <input type="text" placeholder="Enter age" name="age">
 
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a><p>
                     <div>
                         <button type="button" class="cancel">Cancel</button>
-                        <button type="submit" class="signup">Sign Up</button>
+                        <button type="submit" name="submit" class="signup">Sign Up</button>
                     </div>
             </div>
         </form>

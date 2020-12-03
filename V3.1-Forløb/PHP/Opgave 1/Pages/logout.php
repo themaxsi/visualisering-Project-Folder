@@ -3,14 +3,12 @@ if(!isset($_SESSION))
 {
     session_start();
 }
-if(isset($_POST["username"]))
-{
-    $_SESSION["Post-Data-login"] = $_POST;
-}
 
-if(isset($_SESSION["Post-Data-login"])) 
+function LogUserOut()
 {
-    header("Location: ../index.php");
+    session_unset();
+    session_destroy();
+    $_SESSION = [];
 }
 
 
@@ -40,34 +38,18 @@ if(isset($_SESSION["Post-Data-login"]))
         <nav class="Area-nav">
             <ul>
                 <li><a href="../index.php">Front page</a></li>
-                <li><a href="#1">My account</a></li>
+                <li><a href="login.php">My account</a></li>
                 <li><a href="#2">shopping cart</a></li>
                 <li><a href="#3">info</a></li>
             </ul>
         </nav>
     </header>
         
-    <main class="loginMain">
+    <main class="">
         <section>
-            <form class="loginFrom" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-                <div class="containerLogin">
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="username" required>
-
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
-
-                     <button name="login-submit" type="submit">Login</button>
-                    <label >
-                        <input type="checkbox" name="remember"> Remember me
-                    </label>
-                </div>
-
-                <div class="containerLogin">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <span class="password">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
+            <pre><?php print_r($_POST);?></pre>
+            <p>Du er blivet logget ud</pre>
+            <?php LogUserOut() ?>
         </section>
     </main>
 
