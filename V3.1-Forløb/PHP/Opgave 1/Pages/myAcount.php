@@ -3,11 +3,11 @@ if(!isset($_SESSION))
 {
     session_start();
 }
-
 if(isset($_POST))
 {
     $_SESSION["Post-Data"] = $_POST;
 }
+
 
 $db = new MySQLi("localhost", "maxsi", "1234qwer", "game_over_zone");
 
@@ -21,36 +21,29 @@ if ($db->error)
 }
 else
 {
-    $result = $db->query("SELECT * FROM customers");
-}
-while ($UserArray = $result->fetch_assoc()) 
-{
-    echo $UserArray["Username"]." ".$UserArray["Password"] . "<br>"; 
-    $allUsers[] = $UserArray;
-}
-
-if(isset($_POST["username"]))
-{
-    $wrongPassMessage = "you put in the wrong password or username";
-
-    $username = "'" .$_POST["username"]. "'";
-
-    $result = $db->query("SELECT * FROM customers WHERE Username = $username");
-
-    $row = $result->fetch_assoc();
-    if ($row["Password"] == $_POST["password"]) 
+    $userNotInDBError = "user does not exist in db";
+    $userIsDeleted = "user has been deleted";
+    $username = $_SESSION["Post-Data-login"]["username"];
+    echo $username;
+    if($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-        $_SESSION["Post-Data-login"] = $_POST;
-        if(isset($_SESSION["Post-Data-login"])) 
+        $result = $db->query("SELECT * FROM customers WHERE Username = $username");
+
+        if($result->num_rows == 0) 
         {
-            header("Location: ../index.php");
+            echo "<script type='text/javascript'>alert('$userNotInDBError');</script>";
+        }
+        else
+        {
+            if($db->query($sql)) 
+                {
+                    echo "<script type='text/javascript'>alert('$userIsDeleted');</script>";
+                    header("Location: ../index.php");
+                }
         }
     }
-    else 
-    {
-        echo "<script type='text/javascript'>alert('$wrongPassMessage');</script>";
-    }
 }
+
 
 
 
@@ -87,26 +80,13 @@ if(isset($_POST["username"]))
         </nav>
     </header>
         
-    <main class="loginMain">
+    <main class="">
         <section>
-            <form class="loginFrom" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-                <div class="containerLogin">
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="username" required>
-
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
-
-                     <button name="login-submit" type="submit">Login</button>
-                    <label >
-                        <input type="checkbox" name="remember"> Remember me
-                    </label>
-                </div>
-
-                <div class="containerLogin">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <span class="password">Forgot <a href="#">password?</a></span>
-                </div>
+            <form class="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+            
+                <button name="submit" type="submit">Delete account</button>
+                    
+            
             </form>
         </section>
     </main>

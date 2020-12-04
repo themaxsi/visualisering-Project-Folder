@@ -4,7 +4,10 @@ if(!isset($_SESSION))
     session_start();
 }
 
-
+if(isset($_POST))
+{
+    $_SESSION["Post-Data"] = $_POST;
+}
 
 $minChangeColor = date('i');            //<?php echo $minChangeColor
 $monthForCheck = date('m');             //<?php echo $monthForCheck
@@ -181,7 +184,7 @@ function logoutButton()
         <nav class="Area-nav">
             <ul>
                 <li><a href="../index.php">Front page</a></li>
-                <li><a href="Pages\login.php">My account</a></li>
+                <li><a href="../Opgave 1/Pages/myAcount.php">My account</a></li>
                 <li><a href="#2">shopping cart</a></li>
                 <li><a href="#3">info</a></li>
                 <?php echo logoutButton()?>

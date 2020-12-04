@@ -3,6 +3,83 @@ if(!isset($_SESSION))
 {
     session_start();
 }
+
+if(isset($_POST))
+{
+    $_SESSION["Post-Data"] = $_POST;
+}
+
+$db = new MySQLi("localhost", "maxsi", "1234qwer", "game_over_zone");
+if($db->connect_error)
+{
+    die("Connection to database failed: ". $db->connection_error);
+}
+// $result = $db->query("SELECT * FROM Users WHERE Username = $username");
+// while ($customersArray = $result->fetch_assoc()) 
+// {
+//     echo $customersArray["Username"]." ".$customersArray["Password"] . "<br>"; 
+//     $allCustomers[] = $customersArray;
+// }
+
+if($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+    $ErrorMessageUsername = "username already taken";
+    $ErrorMessagePassword = "Passwords does not match";
+    $UserCreatedMessages = "The user has been created you can now login";
+    $username = "'" .$_POST["Username"]. "'";
+    $password = "'" .$_POST["password"]. "'";
+    $firstName = "'" .$_POST["firstName"]. "'";
+    $lastName = "'" .$_POST["lastName"]. "'";
+    $address = "'" .$_POST["PostNumber"]. "'";
+    $postCode = "'" .$_POST["PostNumber"]. "'";
+    $country = "'" .$_POST["country"]. "'";
+    $email = "'" .$_POST["email"]. "'";
+    $website = "'" .$_POST["WebSite"]. "'";
+    if ($db->error) 
+    {
+        echo $db->error;
+    }
+    else
+    {
+        $result = $db->query("SELECT * FROM customers WHERE Username = $username");
+
+        if($result->num_rows == 0) 
+        {
+            if($_POST["password"] == $_POST["repeatPassword"])
+            {
+                $sql = "INSERT INTO customers(Username, Password, Firstname, Lastname, Address, Postcode, Country, Email, Website)
+                VALUES($username, $password, $firstName, $lastName, $address, $postCode, $country, $email, $website)";
+
+                if($db->query($sql)) 
+                {
+                    echo "<script type='text/javascript'>alert('$UserCreatedMessages');</script>";
+                    header("Location: login.php");
+                    
+                }
+                else
+                {
+                    echo $db->error;
+                }
+            }
+            else
+            {
+                echo "<script type='text/javascript'>alert('$ErrorMessagePassword');</script>";
+            }
+        }
+        else
+        {
+            echo "<script type='text/javascript'>alert('$ErrorMessageUsername');</script>";
+        }
+
+
+    }
+}
+
+
+
+
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -41,9 +118,15 @@ if(!isset($_SESSION))
     <main class="crateMain">
         <section>
             
-        <form method="post" action="UserCreatedComplete.php">
+        <form method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
             <div class="formContainerCreate">
                 <h1>Sign Up Form</h1>
+
+                    <!-- UserName -->
+                    <label for="Username"><b>Username</b></label>
+
+                    <input type="text" placeholder="Enter Username*" name="Username" required>
+
 
                     <!-- email -->
                     <label for="email"><b>Email</b></label>
@@ -80,43 +163,18 @@ if(!isset($_SESSION))
 
                     <input type="text" placeholder="Enter Post number*" name="PostNumber" required>
 
-                    <!-- city -->
-                    <label for="city"><b>city</b></label>
-
-                    <input type="text" placeholder="Enter city*" name="city" required>
-
                     <!-- country -->
                     <label for="country"><b>country</b></label>
 
                     <input type="text" placeholder="Enter country*" name="country" required>
 
-                    <!-- phoneNumber -->
-                    <label for="phoneNumber"><b>country</b></label>
+                    <!-- WebSite -->
+                    <label for="WebSite"><b>Website</b></label>
 
-                    <input type="text" placeholder="Enter phone Number*" name="phoneNumber" required>
+                    <input type="text" placeholder="Enter Website*" name="WebSite" required>
 
-                    <!-- gender -->
-                    <div class="genderArea">
-                        <div>
-                            <input type="radio" id="male" name="gender" value="male">
-                            <label class="genderColor" for="male">Male</label><br>
-                        </div>
-                        <div>
-                            <input type="radio" id="female" name="gender" value="female">
-                            <label class="genderColor" for="female">Female</label><br>
-                        </div>
-                        <div>
-                            <input type="radio" id="NoneBinary" name="gender" value="NoneBinary">
-                            <label class="genderColor" for="other">None binary</label> <br>
-                        </div>
-                    </div>
-
-                    <!-- age -->
-
-                    <label for="age"><b>age</b></label>
-
-                    <input type="text" placeholder="Enter age" name="age">
-
+                   
+                    
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a><p>
                     <div>
                         <button type="button" class="cancel">Cancel</button>
