@@ -21,25 +21,29 @@ if ($db->error)
 }
 else
 {
-    $userNotInDBError = "user does not exist in db";
+    $userNotInDBError = "user does not exist in db or you ar not logged in";
     $userIsDeleted = "user has been deleted";
     $username = $_SESSION["Post-Data-login"]["username"];
     echo $username;
+    
     if($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-        $result = $db->query("SELECT * FROM customers WHERE Username = $username");
-
-        if($result->num_rows == 0) 
+        $sql1 = ("SELECT * FROM customers WHERE Username = '$username'");
+        $result = $db->query($sql1);
+        if($result->num_rows == 1) 
         {
-            echo "<script type='text/javascript'>alert('$userNotInDBError');</script>";
+            echo $username;
+            $sql = "DELETE FROM customers WHERE Username = '$username'";
+            if($db->query($sql)) 
+            {
+
+                echo "<script type='text/javascript'>alert('$userIsDeleted');</script>";
+                header("Location: logout.php");
+            }
         }
         else
         {
-            if($db->query($sql)) 
-                {
-                    echo "<script type='text/javascript'>alert('$userIsDeleted');</script>";
-                    header("Location: ../index.php");
-                }
+            echo "<script type='text/javascript'>alert('$userNotInDBError');</script>";
         }
     }
 }
