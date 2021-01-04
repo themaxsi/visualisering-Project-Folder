@@ -186,6 +186,7 @@ function logoutButton()
                 <li><a href="../index.php">Front page</a></li>
                 <li><a href="../Opgave 1/Pages/myAcount.php">My account</a></li>
                 <li><a href="#2">shopping cart</a></li>
+                <li><a href="../Opgave 1/Pages/createProducts.php">shop</a></li>
                 <li><a href="#3">info</a></li>
                 <?php echo logoutButton()?>
             </ul>

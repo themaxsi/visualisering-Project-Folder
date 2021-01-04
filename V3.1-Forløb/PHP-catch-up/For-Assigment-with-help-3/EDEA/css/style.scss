@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Ubuntu&display=swap');
+
+$color-bg-main: hsl(39, 58%, 95%);
+$color-bg-nav: hsl(0, 60%, 34%);
+$color-font-side-nav: hsl(0, 20%, 14%);
+$neon-color1: hsl(0, 20%, 14%);
+$neon-color2: hsl(0, 90%, 54%);
+
+$font-main: 'PT Sans Narrow', Helvetica, Arial, Sans-serif;
+$font-heading: 'Ubuntu', Helvetica, Arial, Sans-serif;
+
+@mixin calculateWidthProducts($columns, $margin)
+{
+    width: (100% - (($columns - 1) * $margin)) / $columns;
+
+    &:nth-child(n)
+    {
+        margin-right: $margin;
+        margin-bottom: $margin;
+    }
+
+    &:nth-child(#{$columns}n)
+    {
+        margin-right: 0;
+    }
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    font-family: $font-main;
+    background-color: $color-bg-main;
+}
+
+.side
+{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 190px;
+    position: fixed;
+    padding: 10px;
+    top: 50px;
+    background-color: hsla(0, 0%, 100%, .6);
+
+    img
+    {
+        margin-bottom: 4vh;
+        width: 100%;
+    }
+
+    ul
+    {
+        list-style-type: none;
+
+        li
+        {
+            display: block;
+            padding: 2vh 0;
+        }
+
+        a
+        {
+            font-size: 1.4rem;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: $color-font-side-nav;
+        }
+    }
+}
+
+.top
+{
+    background-image: linear-gradient(scale-color($color-bg-nav, $lightness:50%), $color-bg-nav);
+    color: $color-bg-main;
+    width: inherit;
+    height: 50px;
+    position: fixed;
+    z-index: 10;
+
+    ul
+    {
+        text-decoration: none;
+        display: flex;
+        width: 100%;
+        align-items: center;
+
+        li
+        {
+            display: inline-block;
+            padding: 0 0.5vw;
+            font-size: 1.2rem;
+
+            &:nth-child(4)
+            {
+                margin-right: auto;
+            }
+
+            a
+            {
+                text-decoration: none;
+                color: $color-bg-main;
+            }
+
+            &:last-child
+            {
+                padding-left: 0;
+            }
+        }
+
+        img
+        {
+            opacity: 0.5;
+            padding-top: 5px;
+            width: 2vw;
+        }
+
+        .carticon
+        {
+            img
+            {
+                transform: scale(.8);
+                
+            }
+            padding-right: 0.3vw;
+        }
+    }
+}
+
+.content, .aboutus
+{
+    margin-left: 220px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 50px;
+
+    header
+    {
+        img
+        {
+            max-width: 100%;
+        }
+    }
+}
+
+.aboutus
+{
+    p
+    {
+        margin: 1rem 0;
+    }
+
+    ul
+    {
+        list-style-position: inside;
+    }
+
+    img
+    {
+        margin: 3rem 0;
+        width: 100%;
+    }
+}
+
+main
+{
+    h1
+    {
+        font-family: $font-heading;
+        color: $neon-color1;
+        padding: 7vh 0 5vh 0;
+    }
+
+    font-size: 1.3rem;
+    padding-bottom: 8vh;
+}
+
+section
+{
+    margin-top: 4vh; 
+
+    h2
+    {
+        padding-bottom: 2vh;
+    }
+
+    img
+    {
+        width: 300px;
+    }
+
+    .products
+    {
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap; 
+
+        article
+        {
+            @include calculateWidthProducts(3, 2%);
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+
+            p
+            {
+                flex: 1 1 100%;
+            }
+       
+            img
+            {
+                align-self: center;
+            }
+
+            img, h3, p
+            {
+                margin: 3%;
+            }
+        }
+
+        h3
+        {
+            font-size: 1.8rem;
+        }
+
+        button
+        {
+            background: linear-gradient(scale-color($color-bg-nav, $lightness:50%), $color-bg-nav);
+            padding: 1vw 0;
+            vertical-align: bottom;
+        }
+    }
+}
+
+footer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    flex: 1 1 100%;
+    border-top: 1px solid $color-font-side-nav;
+    padding-top: 8vh;
+
+    div
+    {
+        @include calculateWidthProducts(3, 2%);
+        display: flex;
+        flex-direction: column;
+        font-size: 1.2rem;
+
+        .footerSoMe
+        {
+            display: flex;
+            flex-direction: row;
+        }
+
+        img
+        {
+            opacity: 0.5;
+            padding: 5px 7px 0 0;
+            width: 2vw;
+        }
+
+        &:nth-child(3)
+        {
+            background-color: hsla(0, 0%, 100%, .6);
+            padding-left: 0.5vw;
+        }
+
+        a
+        {
+            color: $color-font-side-nav;
+            text-decoration: none;
+            
+        }
+
+    }
+
+    h3
+        {
+            height: 4vh;
+        }
+
+    form
+    {
+        p
+        {
+            height: 4vh;
+        }
+    }
+}
+
+form
+{
+    p
+    {
+        line-height: 40px;
+    }
+    label
+    {
+        width: 30%;
+        display: inline-block;
+
+        &.loginform
+        {
+            width: 130px;
+        }
+        
+    }
+    input
+    {
+        display: inline-block;
+        width: 60%;
+        height: 20px;
+        padding-left: 3px;
+    }
+
+    .logininput
+    {
+        width: 250px;
+    }
+
+    .submitbtn
+    {
+        width: 100px;
+        margin-left: 30%;
+        padding-left: 0;
+        height: 20px;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+
+    .loginbtn
+    {
+        margin-left: 0;
+    }
+}

@@ -7,4 +7,5 @@
 <a href="../Opgave 1/Pages/UserCreatedComplete.php">user created</a>            <br>
 <a href="../Opgave 1/Pages/logout.php">logout</a>                               <br>
 <a href="../Opgave 1/Pages/myAcount.php">account</a>                            <br>
+<a href="../Opgave 1/Pages/createProducts.php">Product</a>                  <br>
 </html>
