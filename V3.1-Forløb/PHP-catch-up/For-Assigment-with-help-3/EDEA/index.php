@@ -3,6 +3,61 @@
     { 
         session_start(); 
     }
+
+    if(isset($_POST))
+    {
+        $_SESSION["Post-Data"] = $_POST;
+    }
+    
+    $db = new MySQLi("localhost", "maxsi", "1234qwer", "edea_skates_db");
+    
+    if($db->connect_error)
+    {
+        die("Connection to database failed: ". $db->connection_error);
+    }
+    if ($db->error) 
+    {
+        echo $db->error;
+    }
+    else
+    {
+        // $result = $db->query("SELECT * FROM products ORDER BY PID DESC LIMIT 3");
+        
+    }
+    // while ($ProductArray = $result->fetch_assoc()) 
+    // {
+    //     echo "<pre>" . $ProductArray["PName"] . "<br>" . $ProductArray["PStars"] . "<br>"  . $ProductArray["PDesc"] . "<br>" . $ProductArray["PStiff"] . "<br>" . $ProductArray["PSupp"] . "<br>" . $ProductArray["PPrice"] . "<br>" . $ProductArray["PPic"] . "<br>" . $ProductArray["PStock"] . "<br> <br>" . "</pre>"; 
+    //     $allProducts[] = $ProductArray;
+    //     // echo "<pre>" . $allProducts . "</pre>";
+    // }
+    
+    
+
+    // function FirstCoupleOfProducts($result)
+    // {
+    //     while ($row = $result->fetch_assoc()) 
+    //     {
+    //        return( 
+    //         "<article>
+    //             <img src=" . "For-Assigment-with-help-3/img/".$row["PPic"] . " alt=" . $row["PName"] ."/>
+    //             <h3>" . $row["PName"] . "</h3>
+    //             <p>Antal stjerner: " . $row["PStars"] . "</p>
+    //             <p>Beskrivelse:</p>
+    //             <p>" . $row["PDesc"] . "</p>
+    //             <p>Stivhed: " . $row["PStiff"] ."</p>
+    //             <p>Understøtter: " . $row["PSupp"] . "</p>
+    //             <p>Pris: " . $row["PPrice"] . "</p>
+    //             <button>Køb</button>            
+    //         </article>");
+    //     }
+    // }
+
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +95,43 @@
             <section>
                 <h2>Udvalgte produkter:</h2>
                 <div class="products">
+
+                    <!-- <?php //echo FirstCoupleOfProducts($result)?> -->
+
+                    <?php 
+                        
+                        $result12 = $db->query("SELECT * FROM products ORDER BY PID DESC LIMIT 3");
+                        while ($row = $result12->fetch_assoc()) 
+                        {
+                            if (isset($row["PPic"])) 
+                            {
+                                $img = explode(" ", $row["PPic"])[0];
+                            }
+                            else
+                            {
+                                $img = "imagecomingsoon.png";
+                            }
+                            
+
+
+                            ?>
+                            <article>
+                                <img src="<?php echo 'img/'.$img ?>" alt="<?php echo $row['PName'] ?>">
+                                <h3><?php echo $row['PName'] ?></h3>
+                                <p>Antal stjerner: <?php echo $row['PStars'] ?></p>
+                                <p>Beskrivelse:</p>
+                                <p><?php echo $row['PDesc'] ?></p>
+                                <p>Stivhed: <?php echo $row['PStiff'] ?></p>
+                                <p>Understøtter: <?php echo $row['PSupp'] ?></p>
+                                <p>Pris: <?php echo $row['PPrice'] ?></p>
+                                <button>Køb nu!</button>
+                            </article>
+
+
+                        <?php 
+                        }
+                        ?> 
+<!--                             
                     <article>
                         <img src="img/piano-edea-skates.jpg" alt="Piano Edea skate">
                         <h3>Edea Piano</h3>
@@ -90,8 +182,8 @@
                         <p>Understøtter: triplespring quadspring</p>
                         <p>Pris: 2675,-</p>
                         <button>Køb nu!</button>
-                    </article>
-                </div class="products">
+                    </article> -->
+                </div>
             </section>
         </main>
 

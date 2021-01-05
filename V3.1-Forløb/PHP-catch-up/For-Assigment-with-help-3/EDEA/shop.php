@@ -3,7 +3,31 @@
     { 
         session_start(); 
     }
+
+    if(isset($_POST))
+    {
+        $_SESSION["Post-Data"] = $_POST;
+    }
+    
+    $db = new MySQLi("localhost", "maxsi", "1234qwer", "edea_skates_db");
+    
+    if($db->connect_error)
+    {
+        die("Connection to database failed: ". $db->connection_error);
+    }
+    if ($db->error) 
+    {
+        echo $db->error;
+    }
+    
+
+
+
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +51,45 @@
             <h1>EDEA shop</h1>
             <section>
                 <div class="products">
+
+
+                    <?php 
+                        
+                        $result12 = $db->query("SELECT * FROM products ORDER BY PID DESC");
+                        while ($row = $result12->fetch_assoc()) 
+                        {
+                            if (isset($row["PPic"])) 
+                            {
+                                $img = explode(" ", $row["PPic"])[0];
+                            }
+                            else
+                            {
+                                $img = "imagecomingsoon.png";
+                            }
+                            
+
+
+                            ?>
+                            <article>
+                                <img src="<?php echo 'img/'.$img ?>" alt="<?php echo $row['PName'] ?>">
+                                <h3><?php echo $row['PName'] ?></h3>
+                                <p>Antal stjerner: <?php echo $row['PStars'] ?></p>
+                                <p>Beskrivelse:</p>
+                                <p><?php echo $row['PDesc'] ?></p>
+                                <p>Stivhed: <?php echo $row['PStiff'] ?></p>
+                                <p>Understøtter: <?php echo $row['PSupp'] ?></p>
+                                <p>Pris: <?php echo $row['PPrice'] ?></p>
+                                <button>Køb nu!</button>
+                            </article>
+
+
+                    <?php 
+                    }
+                    ?> 
+
+
+
+<!-- 
                     <article>
                         <img src="img/piano-edea-skates.jpg" alt="Piano Edea skate">
                         <h3>Edea Piano</h3>
@@ -120,8 +183,8 @@
                         <p>Understøtter: enkeltspring Axel</p>
                         <p>Pris: 1175,-</p>
                         <button>Køb nu!</button>
-                    </article>
-                </div class="products">
+                    </article> -->
+                </div>
             </section>
         </main>
 
