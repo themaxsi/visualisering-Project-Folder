@@ -240,7 +240,17 @@ section
             background: linear-gradient(scale-color($color-bg-nav, $lightness:50%), $color-bg-nav);
             padding: 1vw 0;
             vertical-align: bottom;
+            a
+            {
+                text-decoration: none;
+                color: black;
+                font-size: 1rem;
+            }
         }
+
+        
+
+
     }
 }
 
@@ -347,4 +357,69 @@ form
     {
         margin-left: 0;
     }
+}
+
+
+//---------------------------
+
+
+.showProduct
+{
+    display: flex;
+    align-content: center;
+}
+
+.leftColumn
+{
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    width: 300px;
+    img
+    {
+        margin-bottom: 5px;
+        border: $color-font-side-nav solid 1px;
+    }
+}
+
+.rightColumn
+{
+    .rightColumnTop
+    {
+        border-bottom: 1px solid $color-font-side-nav;
+    }
+    button
+    {
+        background: linear-gradient(scale-color($color-bg-nav, $lightness:50%), $color-bg-nav);
+        padding: 1vw 0;
+        vertical-align: bottom;
+        width: 100%;
+        a
+        {
+            text-decoration: none;
+            color: black;
+            font-size: 1rem;
+        }
+    }
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    margin-left: 50px;
+    .rightColumnDown
+    {
+        
+        margin-top: 15px;
+    }
+    p, a
+    {
+        margin-bottom: 10px;
+    }
+    h2
+    {
+        margin-bottom: -10px;
+    }
+}
+.productHeader
+{
+    border-bottom: 1px solid $color-font-side-nav;  
 }

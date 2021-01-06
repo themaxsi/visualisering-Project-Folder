@@ -103,16 +103,34 @@
                         $result12 = $db->query("SELECT * FROM products ORDER BY PID DESC LIMIT 3");
                         while ($row = $result12->fetch_assoc()) 
                         {
-                            if (isset($row["PPic"])) 
+                            if (isset($row["PPic"])) //checks if the variable has a value
                             {
-                                $img = explode(" ", $row["PPic"])[0];
+                                if (strpos($row['PPic'], " "))  //if there is more then one
+                                {
+                                    $img = explode(" ", $row["PPic"])[0];
+                                }
+                                else //if there is 1 pic
+                                {
+                                    $img = $row['PPic'];
+                                }
                             }
-                            else
+                            else // if there is no pic
                             {
                                 $img = "imagecomingsoon.png";
                             }
                             
-
+                            // if (strpos($row['PPic'], " "))  //if there is more then one
+                            // {
+                            //     $img = explode(" ", $row["PPic"])[0];
+                            // }
+                            // elseif (!isset($row['PPic']))  //if there is no pic
+                            // {
+                            //     $img = "imagecomingsoon.png";
+                            // }
+                            // else //if there is 1 pic
+                            // {
+                            //     $img = $row['PPic'];
+                            // }
 
                             ?>
                             <article>
@@ -124,7 +142,7 @@
                                 <p>Stivhed: <?php echo $row['PStiff'] ?></p>
                                 <p>Understøtter: <?php echo $row['PSupp'] ?></p>
                                 <p>Pris: <?php echo $row['PPrice'] ?></p>
-                                <button>Køb nu!</button>
+                                <button><a href="showProduct.php?id=<?php echo $row['PID'] ?>">Køb nu!</a></button>
                             </article>
 
 

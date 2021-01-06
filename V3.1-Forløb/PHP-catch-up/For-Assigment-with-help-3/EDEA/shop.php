@@ -58,11 +58,18 @@
                         $result12 = $db->query("SELECT * FROM products ORDER BY PID DESC");
                         while ($row = $result12->fetch_assoc()) 
                         {
-                            if (isset($row["PPic"])) 
+                            if (isset($row["PPic"])) //checks if the variable has a value
                             {
-                                $img = explode(" ", $row["PPic"])[0];
+                                if (strpos($row['PPic'], " "))  //if there is more then one
+                                {
+                                    $img = explode(" ", $row["PPic"])[0];
+                                }
+                                else //if there is 1 pic
+                                {
+                                    $img = $row['PPic'];
+                                }
                             }
-                            else
+                            else // if there is no pic
                             {
                                 $img = "imagecomingsoon.png";
                             }
