@@ -1,0 +1,754 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Ubuntu&display=swap');
+
+$color-bg-main: hsl(197, 0%, 100%);
+$color-bg-nav: hsl(0, 60%, 34%);
+$color-primary: hsl(77, 99%, 38%);
+$color-link: hsl(197, 46%, 46%);
+$color-link-hover-background: hsla(77, 1%, 95%, 1);
+$color-special: hsl(317, 75%, 50%);
+$color-dark: hsl(77, 1%, 14%);
+
+$font-main: 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif; 
+$font-heading: 'Ubuntu', Helvetica, Arial, Sans-serif;
+
+@mixin calculateWidthProducts($columns, $margin)
+{
+    width: (100% - (($columns - 1) * $margin)) / $columns;
+
+    &:nth-child(n)
+    {
+        margin-right: $margin;
+        margin-bottom: $margin;
+    }
+
+    &:nth-child(#{$columns}n)
+    {
+        margin-right: 0;
+    }
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    font-family: $font-main;
+    background-color: $color-bg-main;
+}
+
+// General styling of all links - some are overridden in special circumstances
+
+a
+{
+    color: $color-link;
+    text-decoration: none;
+}
+
+// General styling of all buttons - some are overridden in special circumstances
+
+.btn
+{
+    background: linear-gradient(scale-color($color: $color-link, $lightness: 30%), $color-link);
+    background-color: $color-link;
+    color: $color-link-hover-background;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 0.5rem 2rem;
+    border-radius: 15px;
+    display: block;
+    box-shadow: -2px -2px scale-color($color: $color-link, $alpha: -10);
+    text-shadow: -2px -2px scale-color($color: $color-link, $alpha: -1);
+
+    &:hover
+    {
+        background: scale-color($color: $color-link, $lightness: 30%);
+    }
+}
+
+// Styling of header and menu
+
+header
+{
+    margin-top: 1rem;
+}
+
+.quicklinks
+{
+    display: flex;
+    width: 100%;
+
+    ul
+    {
+        width: 100%;
+        list-style-type: none;
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+
+        a
+        {
+            border-right: 2px solid $color-link;
+            padding: 0 1rem;
+
+            &:hover
+            {
+                color: $color-primary;
+                text-decoration: none;
+            }
+        }
+
+        li
+        {
+            &:nth-child(3)
+            {
+                a
+                {
+                    border: none;
+                    padding-right: 0;
+                }
+            }
+        }
+
+        .offer
+        {
+            flex-basis: 100%;
+            text-align: center;
+            color: $color-special;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+    }
+}
+
+.top
+{
+    background-color: $color-bg-main;
+    border-top: 2px solid $color-primary;
+    border-bottom: 2px solid $color-primary;
+    color: $color-primary;
+    width: inherit;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;   
+
+    ul
+    {
+        list-style-type: none;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+
+        li
+        {
+            font-size: 1.2rem;
+            line-height: 48px;
+            padding: 0 2rem;
+            border-bottom: 2px solid transparent;
+
+            &:hover
+            {
+                background-color: $color-link-hover-background;
+            }
+
+            a
+            {
+                &:hover
+                {
+                    color: $color-primary;
+
+                }
+            }
+            
+            &:hover ul
+            {
+                display: block;
+            }
+
+            ul
+            {
+                display: none;
+                position: absolute;
+                background-color: $color-link-hover-background;
+                width: 200px;
+                height: auto;
+                margin: 2px -2rem;
+                border-bottom: none;
+
+
+                li
+                {
+                    display: block;
+
+                    &:hover
+                    {
+                        background-color: scale-color($color: $color-link-hover-background, $lightness: -5%);
+                    }
+                }
+            }
+
+            &.parent:hover
+            {
+                border-bottom: 2px solid $color-link-hover-background;
+            }
+        }
+
+        img
+        {
+            opacity: 0.5;
+            padding-top: 5px;
+            width: 2vw;
+        }
+
+        .carticon
+        {
+            img
+            {
+                transform: scale(.8);
+                
+            }
+            padding-right: 0.3vw;
+        }
+    }
+}
+
+// Styling of content
+
+.featured
+{
+    article
+    {
+        position: relative;
+
+        img
+        {
+            width: 100%;
+        }
+    }
+}
+
+// Text over image overlay
+
+.overlay {
+    background: rgba(255, 255, 255, 0.8);
+    color: #7a932e;
+    font-size: 24px;
+    margin: 0 -2px 0 2px;
+    padding: 3px 13px;
+    position: absolute;
+    top: 13px;
+
+    &.header
+    {
+        padding-left: 0;
+    }
+
+    &.price
+    {
+        bottom: 20px;
+        color: #3f90af;
+        font-size: 22px;
+        right: 0;
+        font-weight: normal;
+        top: auto;
+    }
+
+    &.desc
+    {
+        bottom: 20px;
+        font-size: 1.5rem;
+        font-weight: normal;
+        right: 0;
+        text-align: center;
+        top: auto;
+    }
+
+    &.feature
+    {
+        font-size: 2rem;
+        font-weight: normal;
+    }
+
+    .price
+    {
+        color: $color-link;
+        display: block;
+        font-size: 2rem;
+        font-weight: normal;
+        margin: 7px 0;
+    }
+}
+
+main
+{
+    font-size: 1.3rem;
+    padding-bottom: 2vh;
+    
+    h1
+    {
+        font-size: 2rem;
+        color: $color-dark;
+        margin-bottom: 2rem;
+    }
+
+    h2
+    {
+        color: $color-dark;
+        font-size: 1.5rem;
+    }
+    
+    h3, h4
+    {
+        font-family: $font-heading;
+        color: $color-primary;
+    }
+ 
+    section
+    {
+        margin-top: 2rem;
+
+        .products
+        {
+        display: flex;
+        flex-direction: column;
+
+            div
+            {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        .indexheadline
+        {
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid $color-primary;
+
+            a
+            {
+                font-size: 1.2rem;
+                font-weight: bold;
+
+                &:after
+                { 
+                    content:" \003e"; 
+                }
+
+                &:hover
+                {
+                    color: scale-color($color: $color-link, $lightness: 30%);
+                }
+            }
+        }
+
+        .indexcontent
+        {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+
+            li
+            {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                border: 2px solid transparent;
+
+                &:hover
+                {
+                    border: 2px solid $color-special;
+                }
+            }
+
+            h4
+            {
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            p
+            {
+                font-size: 1rem;
+                font-weight: bold;
+            }
+        }
+
+
+    }
+}
+
+// Special styling for the "specials" section on index.php
+
+.specials
+{
+    .indexcontent
+    {
+        column-gap: 3rem;
+        
+        img
+        {
+            max-width: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        
+        li
+        {
+            justify-content: space-between;
+            row-gap: 3rem;
+            border: none;
+            
+            &:hover
+            {
+                border: none;
+            }
+
+            img
+            {
+                border: 2px solid $color-dark;
+               
+
+                &:hover
+                {
+                    border: 2px solid $color-special;
+                }
+            }
+            
+        }
+
+        a
+        {
+            position: relative;
+        }
+    }
+}
+
+// Special styling for arrangements.php
+
+.arrindex
+{
+    .indexcontent
+    {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+
+
+        li
+        {
+            @include calculateWidthProducts(5, 2%);
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.twocol
+{
+    display: flex;
+    justify-content: space-between;
+
+    & article:first-child
+    {
+        width: 20%;
+    }
+
+    img
+    {
+        max-width: 100%;
+    }
+}
+
+// Special styling for designers.php
+
+.designers
+{
+    .indexcontent
+    {
+        li:hover
+        {
+            border: 2px solid transparent;
+        }
+    }
+}
+
+// Special styling for care_orchids.php
+
+.careorchids
+{
+    display: flex;
+    justify-content: space-between;
+
+    .careorchidsleft
+    {
+        width: 80%;
+        padding-right: 5%;
+    }
+
+    .careorchidsright
+    {
+        width: 20%;
+        padding-left: 5%;
+        border-left: 2px solid $color-primary;
+
+        h2
+        {
+            font-style: normal;
+            font-weight: bold;
+            text-align: left;
+            margin: 0;
+        }
+
+        li
+        {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            border-bottom: 1px solid $color-primary;
+        }
+    }
+
+    h1
+    {
+        margin-bottom: 0.5rem;
+    }
+
+    h2
+    {
+        font-weight: normal;
+        font-style: italic;
+        margin: 0 0 2rem 2rem;
+    }
+
+    h4
+    {
+        font-weight: normal;
+    }
+
+    h3, h4, p, ul, li
+    {
+        margin-bottom: 1rem;
+    }
+
+    ul
+        {
+            list-style-type: none;
+        }
+
+    ul.list
+    {
+        list-style-position: inside;
+        list-style-type: disc;
+    }
+}
+
+// Special styling for bouquet.php
+
+.bouquet
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .invisible
+    {
+        visibility: hidden;
+    }
+
+    fieldset
+    {
+        display: flex;
+        border: none;
+        margin: 1rem 0;
+
+        &.break
+        {
+            flex-basis: 100%;
+        }
+
+        div:nth-child(2)
+        {
+            margin-left: 1rem;
+        }
+
+        label
+        {
+            display: inline-block;
+            width: 30%;
+        }
+
+        p, label
+        {
+            font-size: 1rem;
+        }
+
+        .color input
+        {
+            text-align: right;
+        }
+
+        .qty input
+        {
+            display: inline-block;
+            width: 60%;
+        }
+    }
+}
+
+// Special styling for order.php
+
+.orderdetails
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-row-gap: 2rem;
+    margin-top: 2rem;
+
+    .header
+    {
+        font-weight: bold;
+    }
+}
+
+.orderconfirm
+{
+    .btn
+    {
+        display: inline-block;
+    }
+
+    .btn.confirm
+    {
+        background: $color-primary;
+
+        &:hover
+        {
+            background: scale-color($color: $color-primary, $lightness: 10%);
+        }
+    }
+
+    form
+    {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+// Special styling for arrdetails.php
+
+.arrdetails
+{
+    section
+    {
+        display: flex;
+        column-gap: 3rem;
+
+        article
+        {
+            display: flex;
+            flex-direction: column;
+            row-gap: 1rem;
+
+            h1
+            {
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid $color-primary;
+            }
+
+            .arrprice
+            {
+                text-align: center;
+                color: $color-link;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+// Footer styling
+
+footer
+{
+    display: flex;
+    flex-direction: column;
+
+    .footercontent
+    {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        flex: 1 1 100%;
+        border-top: 2px solid $color-primary;
+        padding-top: 2vh;
+
+        div
+        {
+            @include calculateWidthProducts(3, 2%);
+            display: flex;
+            flex-direction: column;
+
+            .footerSoMe
+            {
+                display: flex;
+                flex-direction: row;
+
+                img
+                {
+                    opacity: 0.5;
+                    padding: 5px 7px 0 0;
+                    width: 2vw;
+
+                    &:hover
+                    {
+                        opacity: 1;
+                    }
+                }
+            }        
+
+        }
+
+        a
+        {
+            font-size: 1rem;
+
+            &:hover
+            {
+                color: $color-primary;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .footercopy
+    {
+        height: 50px;
+        line-height: 50px;
+        text-align: right;
+        background-color: scale-color($color: $color-primary, $alpha: -50);
+        padding-right: 1rem;
+
+        a:hover
+        {
+            color: scale-color($color: $color-link, $lightness: 30%);
+        }
+    }
+}
+
+
+
+
+.orderLine
+{
+    border-bottom: 2px solid $color-primary;
+}

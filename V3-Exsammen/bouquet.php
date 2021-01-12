@@ -1,3 +1,30 @@
+<?php
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
+
+    
+    if(isset($_POST))
+    {
+        $_SESSION["Post-Data"] = $_POST;
+    }
+    
+    $db = new MySQLi("localhost", "maxsi", "1234qwer", "hansel_petal_flower");
+    
+    if($db->connect_error)
+    {
+        die("Connection to database failed: ". $db->connection_error);
+    }
+    if ($db->error) 
+    {
+        echo $db->error;
+    }
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,42 +37,22 @@
 
 <body class="content">
 
-    <header>
-        <div class="quicklinks">
-            <a href="index.php"><img src="img/logo.png" alt="Hansel and Petal logo"></a>
-            <ul>
-                <li><a href="#">My Account</a></li>
-                <li><a href="order.php">View My Order</a></li>
-                <li><a href="#">Customer Service</a></li>
-                <li class="offer">FREE Shipping on orders over $75.00!</li>
-            </ul>
-        </div>      
-        <nav class="top">
-            <ul>
-                <li><a href="arrangements.php">Arrangements</a></li>
-                <li><a href="bouquet.php">Build a bouquet</a></li>
-                <li class="parent"><a href="#">Care tips</a>
-                    <ul>
-                        <li><a href="care_orchids.php">Orchids</a></li>
-                    </ul>
-                </li>
-                <li><a href="designers.php">Our designers</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include "includes/header.php"; ?>
 
     <main class="careorchids">
         <section>
             <h1>Build a Bouquet</h1>
             <h2>From Our Fresh Selection of Flowers</h2>
             <p>Choose the flowers you want, choose a color if available, and choose the number of each for your bouquet.</p>
+
+            
             <form action="order.php" method="post" class="bouquet">
                 <fieldset>
                     <div>
                         <img src="img/160_calla_blush_160337318.jpg" alt="Calla Lilies">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Calla Lilies</a></h4>
+                        <h4><a href="flwrdetails.php?FID=1" target="_blank">Calla Lilies</a></h4>
                         <p>$3.00 per stem</p>
                         <div class="color">
                             <label for="colorCL">Color</label>
@@ -64,12 +71,15 @@
                         <input type="hidden" name="cost_Calla_Lilies" value="3">
                     </div>
                 </fieldset>
+
+
+
                 <fieldset>
                     <div>    
                         <img src="img/160_sunflower_146748795.jpg" alt="Sunflowers">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Sunflowers</a></h4>
+                        <h4><a href="flwrdetails.php?FID=2" target="_blank">Sunflowers</a></h4>
                         <p>$3.00 per stem</p>
                         <div class="color invisible">
                             <label>Dummy</label>
@@ -85,12 +95,15 @@
                         <input type="hidden" name="image_Sunflowers" value="160_sunflower_146748795">
                     </div>
                 </fieldset>
+
+
+
                 <fieldset>
                     <div>
                         <img src="img/160_iris_purple_121549009.jpg" alt="Iris">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Iris</a></h4>
+                        <h4><a href="flwrdetails.php?FID=3" target="_blank">Iris</a></h4>
                         <p>$2.00 per stem</p>
                         <div class="color invisible">
                             <label>Dummy</label>
@@ -106,12 +119,15 @@
                         <input type="hidden" name="image_Iris" value="160_iris_purple_121549009">
                     </div>
                 </fieldset>
+
+
+
                 <fieldset>
                     <div>
                         <img src="img/160_alstromeria_87519333.jpg" alt="Peruvian Lilies">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Peruvian Lilies</a></h4>
+                        <h4><a href="flwrdetails.php?FID=4" target="_blank">Peruvian Lilies</a></h4>
                         <p>$2.00 per stem</p>
                         <div class="color invisible">
                             <label>Dummy</label>
@@ -127,12 +143,15 @@
                         <input type="hidden" name="image_Peruvian_Lilies" value="160_alstromeria_87519333">
                     </div>
                 </fieldset>
+
+
+
                 <fieldset>
                     <div>
                         <img src="img/160_daffodil_122442732.jpg" alt="Daffodils">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Daffodils</a></h4>
+                        <h4><a href="flwrdetails.php?FID=5" target="_blank">Daffodils</a></h4>
                         <p>$2.00 per stem</p>
                         <div class="color invisible">
                             <label>Dummy</label>
@@ -148,12 +167,15 @@
                         <input type="hidden" name="image_Daffodils_(Narcissus)" value="160_daffodil_122442732">
                     </div>
                 </fieldset>
+
+
+
                 <fieldset>
                     <div>
                         <img src="img/160_gerbera_purple_146798391.jpg" alt="Gerbera">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Gerbera</a></h4>
+                        <h4><a href="flwrdetails.php?FID=6" target="_blank">Gerbera</a></h4>
                         <p>$3.00 per stem</p>
                         <div class="color">
                             <label for="colorGD">Color</label>
@@ -172,12 +194,15 @@
                         <input type="hidden" name="cost_Gerbera_Daisies" value="3">
                     </div>
                 </fieldset>
+
+
+
                 <fieldset>
                     <div>
                         <img src="img/160_dendrobium2_152158743.jpg" alt="Dendrobium">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Dendrobium</a></h4>
+                        <h4><a href="flwrdetails.php?FID=7" target="_blank">Dendrobium</a></h4>
                         <p>$4.00 per stem</p>
                         <div class="color invisible">
                             <label>Dummy</label>
@@ -193,12 +218,15 @@
                         <input type="hidden" name="image_Dendrobium_Orchid" value="160_dendrobium2_152158743">
                     </div>
                 </fieldset>
+
+
+
                 <fieldset>
                     <div>
                         <img src="img/160_rose_pink_112277154.jpg" alt="Rose Pink">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Roses</a></h4>
+                        <h4><a href="flwrdetails.php?FID=8" target="_blank">Roses</a></h4>
                         <p>$3.00 per stem</p>
                         <div class="color">
                             <label for="colorR">Color</label>
@@ -217,12 +245,15 @@
                         <input type="hidden" name="cost_Roses" value="3">
                     </div>
                 </fieldset>
+
+
+
                 <fieldset>
                     <div>
                         <img src="img/160_lily_pink_160102549.jpg" alt="Lily Pink">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Lilies</a></h4>
+                        <h4><a href="flwrdetails.php?FID=9" target="_blank">Lilies</a></h4>
                         <p>$3.00 per stem</p>
                         <div class="color">
                             <label for="colorL">Color</label>
@@ -241,12 +272,15 @@
                         <input type="hidden" name="cost_Lilies" value="3">
                     </div>
                 </fieldset>
+
+
+
                 <fieldset>
                     <div>
                         <img src="img/160_tulip_purple_160910481.jpg" alt="Tulip Purple">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Tulips</a></h4>
+                        <h4><a href="flwrdetails.php?FID=10" target="_blank">Tulips</a></h4>
                         <p>$2.00 per stem</p>
                         <div class="color">
                             <label for="colorT">Color</label>
@@ -265,12 +299,15 @@
                         <input type="hidden" name="cost_Tulips" value="2">
                     </div>
                 </fieldset>
+
+
+
                 <fieldset>
                     <div>
                         <img src="img/160_lilac_157045915.jpg" alt="Lilac">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Lilacs</a></h4>
+                        <h4><a href="flwrdetails.php?FID=11" target="_blank">Lilacs</a></h4>
                         <p>$4.00 per stem</p>
                         <div class="color invisible">
                             <label>Dummy</label>
@@ -286,12 +323,15 @@
                         <input type="hidden" name="image_Lilac" value="160_lilac_157045915">
                     </div>
                 </fieldset>
+
+
+
                 <fieldset>
                     <div>
                         <img src="img/160_daisy_white_159207232.jpg" alt="Daisy White">
                     </div>
                     <div>
-                        <h4><a href="flwrdetails.php" target="_blank">Daisies</a></h4>
+                        <h4><a href="flwrdetails.php?FID=12" target="_blank">Daisies</a></h4>
                         <p>$1.00 per stem</p>
                         <div class="color invisible">
                             <label>Dummy</label>
@@ -307,50 +347,17 @@
                         <input type="hidden" name="image_Daisies" value="160_daisy_white_159207232">
                     </div>
                 </fieldset>
+
+
                 <fieldset class="break"></fieldset>
                 <input class="btn break" value="Add to Basket" type="submit" name="bouquet">
+
+
+                
             </form>
         </section>
     </main>
     
-    <footer>
-    <div class="footercontent">
-        <div>
-            <a href="arrangements.php">Arrangements</a>
-            <a href="shop.php">Live Plants</a>
-            <a href="bouquet.php">Build-a-Bouquet</a>
-            <a href="#">Special Events</a>
-            <a href="#">Care Tips</a>
-            <a href="#">Eco-Conscious</a>
-            <a href="designers.php">Our Designers</a>
-        </div>
-
-        <div>
-            <a href="#">My Account</a>
-            <a href="#">Order Status</a>
-            <a href="#">Customer Service</a>
-            <a href="#">Fresh Flower Guarantee</a>
-            <a href="#">Shipping Information</a>
-
-
-        </div>
-
-        <div>
-            <a href="#">About Us</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms &amp; Conditions</a>
-            <p>Follow us on SoMe:</p>
-            <div class="footerSoMe">
-                <a href="#"><img src="img/facebookIcon-bw.png" alt="Facebook logo"></a>
-                <a href="#"><img src="img/instagramIcon-bw.png" alt="Instagram logo"></a>
-                <a href="#"><img src="img/twitterIcon-bw.png" alt="Twitter logo"></a>
-                <a href="#"><img src="img/youtubeIcon-bw.png" alt="YouTube logo"></a>
-            </div>
-        </div>
-
-        <img src="img/logo.png" alt="Hansel and Petal" height="124" width="207">
-        </div>
-        <div class="footercopy"><a href="index.php">© 2020 Hansel and Petal</a></div>
-    </footer>
+    <?php include "includes/footer.php"; ?>
 </body>
 </html>

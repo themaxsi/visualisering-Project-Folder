@@ -1,3 +1,27 @@
+<?php 
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
+    if(isset($_POST))
+    {
+        $_SESSION["Post-Data"] = $_POST;
+    }
+
+    $db = new MySQLi("localhost", "maxsi", "1234qwer", "hansel_petal_flower");
+    
+    if($db->connect_error)
+    {
+        die("Connection to database failed: ". $db->connection_error);
+    }
+    if ($db->error) 
+    {
+        echo $db->error;
+    }
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,29 +34,7 @@
 
 <body class="content">
 
-    <header>
-        <div class="quicklinks">
-            <a href="index.php"><img src="img/logo.png" alt="Hansel and Petal logo"></a>
-            <ul>
-                <li><a href="#">My Account</a></li>
-                <li><a href="order.php">View My Order</a></li>
-                <li><a href="#">Customer Service</a></li>
-                <li class="offer">FREE Shipping on orders over $75.00!</li>
-            </ul>
-        </div>      
-        <nav class="top">
-            <ul>
-                <li><a href="arrangements.php">Arrangements</a></li>
-                <li><a href="bouquet.php">Build a bouquet</a></li>
-                <li class="parent"><a href="#">Care tips</a>
-                    <ul>
-                        <li><a href="care_orchids.php">Orchids</a></li>
-                    </ul>
-                </li>
-                <li><a href="designers.php">Our designers</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include "includes/header.php"; ?>
 
     <main class="careorchids">
         <section class="careorchidsleft">
@@ -156,77 +158,48 @@
             <article>
                 <h2>Orchids in stock:</h2>
                 <ul>
-                    <li>
-                        <a href="#">
-                            <img src="img/200_phalaenopsis_164373689.jpg" alt="Phalaenopsis">
-                            <h3>Phalaenopsis "Moth Orchid"</h3>
-                            <p>From $19.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/200_dendrobium2_152158743.jpg" alt="Dendrobium">
-                            <h3>Dendrobium Orchid "Lei Orchid"</h3>
-                            <p>From $25.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/200_oncidium2_152176782.jpg" alt="Oncidium">
-                            <h3>Oncidium Orchid "Dancing Lady"</h3>
-                            <p>From $22.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/200_cattleya2_149067833.jpg" alt="Cattleya">
-                            <h3>Cattleya Orchid "Corsage Orchid"</h3>
-                            <p>From $29.95</p>
-                        </a>
-                    </li>
+
+
+                    <?php 
+                        $searchFlower = "Orchid";
+                        $result12 = $db->query("SELECT * FROM flowers WHERE FClass='Orchid' LIMIT 5");
+                        while ($row = $result12->fetch_assoc()) 
+                        {
+                            if (isset($row["FImg"])) //checks if the variable has a value
+                            {
+                                if (strpos($row['FImg'], " "))  //if there is more then one
+                                {
+                                    $img = explode(" ", $row["FImg"])[0];
+                                }
+                                else //if there is 1 pic
+                                {
+                                    $img = $row['FImg'];
+                                }
+                            }
+                            else // if there is no pic
+                            {
+                                $img = "imagecomingsoon.png";
+                            }
+                            
+                            ?>
+                            <li>
+                                <a href="flwrdetails.php?FID=<?php echo $row['FID']?>">
+                                    <img src="<?php echo 'img/'.$img ?>" alt="<?php echo $row['FName'] ?>">
+                                    <h3><?php echo $row['FName'] ?></h3>
+                                    <p>From $<?php echo $row['FPrice']?></p>
+                                </a>
+                            </li>
+
+
+                        <?php 
+                        }
+                        ?> 
+
                 </ul>
             </article>
         </section>
     </main>
 
-<footer>
-    <div class="footercontent">
-        <div>
-            <a href="arrangements.php">Arrangements</a>
-            <a href="shop.php">Live Plants</a>
-            <a href="bouquet.php">Build-a-Bouquet</a>
-            <a href="#">Special Events</a>
-            <a href="#">Care Tips</a>
-            <a href="#">Eco-Conscious</a>
-            <a href="designers.php">Our Designers</a>
-        </div>
-
-        <div>
-            <a href="#">My Account</a>
-            <a href="#">Order Status</a>
-            <a href="#">Customer Service</a>
-            <a href="#">Fresh Flower Guarantee</a>
-            <a href="#">Shipping Information</a>
-
-
-        </div>
-
-        <div>
-            <a href="#">About Us</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms &amp; Conditions</a>
-            <p>Follow us on SoMe:</p>
-            <div class="footerSoMe">
-                <a href="#"><img src="img/facebookIcon-bw.png" alt="Facebook logo"></a>
-                <a href="#"><img src="img/instagramIcon-bw.png" alt="Instagram logo"></a>
-                <a href="#"><img src="img/twitterIcon-bw.png" alt="Twitter logo"></a>
-                <a href="#"><img src="img/youtubeIcon-bw.png" alt="YouTube logo"></a>
-            </div>
-        </div>
-
-        <img src="img/logo.png" alt="Hansel and Petal" height="124" width="207">
-        </div>
-        <div class="footercopy"><a href="index.php">© 2020 Hansel and Petal</a></div>
-    </footer>
+    <?php include "includes/footer.php"; ?>
 </body>
 </html>

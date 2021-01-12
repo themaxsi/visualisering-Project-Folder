@@ -1,0 +1,682 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Ubuntu&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+  margin: auto;
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+  background-color: white;
+}
+
+a {
+  color: #3f8dab;
+  text-decoration: none;
+}
+
+.btn {
+  background: -webkit-gradient(linear, left top, left bottom, from(#72b2cb), to(#3f8dab));
+  background: linear-gradient(#72b2cb, #3f8dab);
+  background-color: #3f8dab;
+  color: #f2f2f2;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  padding: 0.5rem 2rem;
+  border-radius: 15px;
+  display: block;
+  -webkit-box-shadow: -2px -2px rgba(63, 141, 171, 0.9);
+          box-shadow: -2px -2px rgba(63, 141, 171, 0.9);
+  text-shadow: -2px -2px rgba(63, 141, 171, 0.99);
+}
+
+.btn:hover {
+  background: #72b2cb;
+}
+
+header {
+  margin-top: 1rem;
+}
+
+.quicklinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.quicklinks ul {
+  width: 100%;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.quicklinks ul a {
+  border-right: 2px solid #3f8dab;
+  padding: 0 1rem;
+}
+
+.quicklinks ul a:hover {
+  color: #8ac101;
+  text-decoration: none;
+}
+
+.quicklinks ul li:nth-child(3) a {
+  border: none;
+  padding-right: 0;
+}
+
+.quicklinks ul .offer {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  text-align: center;
+  color: #df20a9;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.top {
+  background-color: white;
+  border-top: 2px solid #8ac101;
+  border-bottom: 2px solid #8ac101;
+  color: #8ac101;
+  width: inherit;
+  height: 50px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.top ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.top ul li {
+  font-size: 1.2rem;
+  line-height: 48px;
+  padding: 0 2rem;
+  border-bottom: 2px solid transparent;
+}
+
+.top ul li:hover {
+  background-color: #f2f2f2;
+}
+
+.top ul li a:hover {
+  color: #8ac101;
+}
+
+.top ul li:hover ul {
+  display: block;
+}
+
+.top ul li ul {
+  display: none;
+  position: absolute;
+  background-color: #f2f2f2;
+  width: 200px;
+  height: auto;
+  margin: 2px -2rem;
+  border-bottom: none;
+}
+
+.top ul li ul li {
+  display: block;
+}
+
+.top ul li ul li:hover {
+  background-color: #e6e6e6;
+}
+
+.top ul li.parent:hover {
+  border-bottom: 2px solid #f2f2f2;
+}
+
+.top ul img {
+  opacity: 0.5;
+  padding-top: 5px;
+  width: 2vw;
+}
+
+.top ul .carticon {
+  padding-right: 0.3vw;
+}
+
+.top ul .carticon img {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.featured article {
+  position: relative;
+}
+
+.featured article img {
+  width: 100%;
+}
+
+.overlay {
+  background: rgba(255, 255, 255, 0.8);
+  color: #7a932e;
+  font-size: 24px;
+  margin: 0 -2px 0 2px;
+  padding: 3px 13px;
+  position: absolute;
+  top: 13px;
+}
+
+.overlay.header {
+  padding-left: 0;
+}
+
+.overlay.price {
+  bottom: 20px;
+  color: #3f90af;
+  font-size: 22px;
+  right: 0;
+  font-weight: normal;
+  top: auto;
+}
+
+.overlay.desc {
+  bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: normal;
+  right: 0;
+  text-align: center;
+  top: auto;
+}
+
+.overlay.feature {
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.overlay .price {
+  color: #3f8dab;
+  display: block;
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 7px 0;
+}
+
+main {
+  font-size: 1.3rem;
+  padding-bottom: 2vh;
+}
+
+main h1 {
+  font-size: 2rem;
+  color: #242423;
+  margin-bottom: 2rem;
+}
+
+main h2 {
+  color: #242423;
+  font-size: 1.5rem;
+}
+
+main h3, main h4 {
+  font-family: "Ubuntu", Helvetica, Arial, Sans-serif;
+  color: #8ac101;
+}
+
+main section {
+  margin-top: 2rem;
+}
+
+main section .products {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main section .products div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main section .indexheadline {
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid #8ac101;
+}
+
+main section .indexheadline a {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+main section .indexheadline a:after {
+  content: " \003e";
+}
+
+main section .indexheadline a:hover {
+  color: #72b2cb;
+}
+
+main section .indexcontent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.8rem 0;
+}
+
+main section .indexcontent li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+main section .indexcontent li:hover {
+  border: 2px solid #df20a9;
+}
+
+main section .indexcontent h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+main section .indexcontent p {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.specials .indexcontent {
+  -webkit-column-gap: 3rem;
+          column-gap: 3rem;
+}
+
+.specials .indexcontent img {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.specials .indexcontent li {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  row-gap: 3rem;
+  border: none;
+}
+
+.specials .indexcontent li:hover {
+  border: none;
+}
+
+.specials .indexcontent li img {
+  border: 2px solid #242423;
+}
+
+.specials .indexcontent li img:hover {
+  border: 2px solid #df20a9;
+}
+
+.specials .indexcontent a {
+  position: relative;
+}
+
+.arrindex .indexcontent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.arrindex .indexcontent li {
+  width: 18.4%;
+  margin-bottom: 1rem;
+}
+
+.arrindex .indexcontent li:nth-child(n) {
+  margin-right: 2%;
+  margin-bottom: 2%;
+}
+
+.arrindex .indexcontent li:nth-child(5n) {
+  margin-right: 0;
+}
+
+.twocol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.twocol article:first-child {
+  width: 20%;
+}
+
+.twocol img {
+  max-width: 100%;
+}
+
+.designers .indexcontent li:hover {
+  border: 2px solid transparent;
+}
+
+.careorchids {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.careorchids .careorchidsleft {
+  width: 80%;
+  padding-right: 5%;
+}
+
+.careorchids .careorchidsright {
+  width: 20%;
+  padding-left: 5%;
+  border-left: 2px solid #8ac101;
+}
+
+.careorchids .careorchidsright h2 {
+  font-style: normal;
+  font-weight: bold;
+  text-align: left;
+  margin: 0;
+}
+
+.careorchids .careorchidsright li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  border-bottom: 1px solid #8ac101;
+}
+
+.careorchids h1 {
+  margin-bottom: 0.5rem;
+}
+
+.careorchids h2 {
+  font-weight: normal;
+  font-style: italic;
+  margin: 0 0 2rem 2rem;
+}
+
+.careorchids h4 {
+  font-weight: normal;
+}
+
+.careorchids h3, .careorchids h4, .careorchids p, .careorchids ul, .careorchids li {
+  margin-bottom: 1rem;
+}
+
+.careorchids ul {
+  list-style-type: none;
+}
+
+.careorchids ul.list {
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+.bouquet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.bouquet .invisible {
+  visibility: hidden;
+}
+
+.bouquet fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  margin: 1rem 0;
+}
+
+.bouquet fieldset.break {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+.bouquet fieldset div:nth-child(2) {
+  margin-left: 1rem;
+}
+
+.bouquet fieldset label {
+  display: inline-block;
+  width: 30%;
+}
+
+.bouquet fieldset p, .bouquet fieldset label {
+  font-size: 1rem;
+}
+
+.bouquet fieldset .color input {
+  text-align: right;
+}
+
+.bouquet fieldset .qty input {
+  display: inline-block;
+  width: 60%;
+}
+
+.orderdetails {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto auto;
+      grid-template-columns: auto auto auto auto auto;
+  grid-row-gap: 2rem;
+  margin-top: 2rem;
+}
+
+.orderdetails .header {
+  font-weight: bold;
+}
+
+.orderconfirm .btn {
+  display: inline-block;
+}
+
+.orderconfirm .btn.confirm {
+  background: #8ac101;
+}
+
+.orderconfirm .btn.confirm:hover {
+  background: #a1e001;
+}
+
+.orderconfirm form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.arrdetails section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 3rem;
+          column-gap: 3rem;
+}
+
+.arrdetails section article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 1rem;
+}
+
+.arrdetails section article h1 {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #8ac101;
+}
+
+.arrdetails section article .arrprice {
+  text-align: center;
+  color: #3f8dab;
+  font-size: 1rem;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+footer .footercontent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  border-top: 2px solid #8ac101;
+  padding-top: 2vh;
+}
+
+footer .footercontent div {
+  width: 32%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+footer .footercontent div:nth-child(n) {
+  margin-right: 2%;
+  margin-bottom: 2%;
+}
+
+footer .footercontent div:nth-child(3n) {
+  margin-right: 0;
+}
+
+footer .footercontent div .footerSoMe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+footer .footercontent div .footerSoMe img {
+  opacity: 0.5;
+  padding: 5px 7px 0 0;
+  width: 2vw;
+}
+
+footer .footercontent div .footerSoMe img:hover {
+  opacity: 1;
+}
+
+footer .footercontent a {
+  font-size: 1rem;
+}
+
+footer .footercontent a:hover {
+  color: #8ac101;
+  text-decoration: underline;
+}
+
+footer .footercopy {
+  height: 50px;
+  line-height: 50px;
+  text-align: right;
+  background-color: rgba(138, 193, 1, 0.5);
+  padding-right: 1rem;
+}
+
+footer .footercopy a:hover {
+  color: #72b2cb;
+}
+
+.orderLine {
+  border-bottom: 2px solid #8ac101;
+}
+/*# sourceMappingURL=style.css.map */

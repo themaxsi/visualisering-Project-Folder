@@ -1,3 +1,53 @@
+<?php 
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
+    if(isset($_GET))
+    {
+        $_SESSION = $_GET;
+    }
+
+    $ID = $_SESSION["id"];
+
+
+    $db = new MySQLi("localhost", "maxsi", "1234qwer", "hansel_petal_flower");
+    
+    if($db->connect_error)
+    {
+        die("Connection to database failed: ". $db->connection_error);
+    }
+    if ($db->error) 
+    {
+        echo $db->error;
+    }
+
+    else
+    {
+        $result = $db->query("SELECT * FROM arrangements WHERE id = $ID");
+        
+    }
+    $productRow = $result->fetch_assoc();
+    for ($i=0; $i < 4; $i++) 
+    { 
+        if (isset($productRow["image"])) //checks if the variable has a value
+        {
+            if (strpos($productRow['image'], " "))  //if there is more then one
+            {
+                $img = explode(" ", $productRow["image"]);
+            }
+            else //if there is 1 pic
+            {
+                $img[0] = $productRow['image'];
+            }
+        }
+        else // if there is no pic
+        {
+            $img[0] = "imagecomingsoon.png";
+        }
+       
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,42 +60,27 @@
 
 <body class="content">
 
-    <header>
-        <div class="quicklinks">
-            <a href="index.php"><img src="img/logo.png" alt="Hansel and Petal logo"></a>
-            <ul>
-                <li><a href="#">My Account</a></li>
-                <li><a href="order.php">View My Order</a></li>
-                <li><a href="#">Customer Service</a></li>
-                <li class="offer">FREE Shipping on orders over $75.00!</li>
-            </ul>
-        </div>      
-        <nav class="top">
-            <ul>
-                <li><a href="arrangements.php">Arrangements</a></li>
-                <li><a href="bouquet.php">Build a bouquet</a></li>
-                <li class="parent"><a href="#">Care tips</a>
-                    <ul>
-                        <li><a href="care_orchids.php">Orchids</a></li>
-                    </ul>
-                </li>
-                <li><a href="designers.php">Our designers</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include "includes/header.php"; ?>
 
     <main class="arrdetails">
         <section>
+
             <article>
-                <img src="img/200_arrangement_yellow_tulip.jpg" alt="Yellow Tulips">
-                <p class="arrprice">Price from $19.95</p>
+                <?php 
+                    for ($j=0; $j < count($img); $j++) 
+                    { 
+                        echo "<img src='img/{$img[$j]}'>";
+                    }
+                ?>
+                <p class="arrprice">Price from <?php echo $productRow['price'] ?></p>
             </article>
+
             <article>
-                <h1>Burst of Yellow</h1>
-                <p>This simple, yet stunning arrangement brims with exuberance. Yellow tulips in a contrasting container.</p>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pulvinar arcu pulvinar, dictum turpis vel, semper risus. Curabitur ac augue et felis tempor molestie. Fusce ligula libero, dignissim eget ultrices ut, varius sit amet massa. Curabitur luctus nulla non lacus malesuada, eget elementum arcu lacinia. Fusce et metus non nulla sodales hendrerit. Aenean vitae enim nunc. Integer ultrices erat ac nunc commodo, in mattis mi viverra. Nullam et vehicula orci.</p>
-                <p>Sed accumsan, odio at vestibulum viverra, magna magna cursus mi, a venenatis nibh enim sagittis felis. Suspendisse elit tortor, dictum a est in, sollicitudin laoreet purus. Nullam quis porta tortor. Suspendisse potenti. Suspendisse commodo pulvinar arcu nec fringilla. Pellentesque dignissim scelerisque elit, nec sollicitudin turpis sodales ut. Sed eget elementum augue, non dapibus dui. Aenean non rhoncus nisi. Fusce non sem suscipit, posuere risus et, adipiscing ante. Maecenas nec neque ac urna bibendum viverra eu a eros. Maecenas quis eros a lorem blandit euismod sit amet venenatis leo. Praesent a justo ut turpis tristique volutpat. Sed volutpat felis eget enim laoreet, ac porttitor eros interdum.</p>
+                <h1><?php echo $productRow['title']?></h1>
+                <p><?php echo $productRow['description']?></p>
             </article>
+           
+           
             <article>
                 <h3>How to Order</h3>
                 <p>All the flowers for our mixed arrangements are carefully selected by <a href="designers.php">our talented designers</a> using the freshest flowers in season.</p>
@@ -54,45 +89,7 @@
         </section>
     </main>
 
-    <footer>
-    <div class="footercontent">
-        <div>
-            <a href="arrangements.php">Arrangements</a>
-            <a href="shop.php">Live Plants</a>
-            <a href="bouquet.php">Build-a-Bouquet</a>
-            <a href="#">Special Events</a>
-            <a href="#">Care Tips</a>
-            <a href="#">Eco-Conscious</a>
-            <a href="designers.php">Our Designers</a>
-        </div>
-
-        <div>
-            <a href="#">My Account</a>
-            <a href="#">Order Status</a>
-            <a href="#">Customer Service</a>
-            <a href="#">Fresh Flower Guarantee</a>
-            <a href="#">Shipping Information</a>
-
-
-        </div>
-
-        <div>
-            <a href="#">About Us</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms &amp; Conditions</a>
-            <p>Follow us on SoMe:</p>
-            <div class="footerSoMe">
-                <a href="#"><img src="img/facebookIcon-bw.png" alt="Facebook logo"></a>
-                <a href="#"><img src="img/instagramIcon-bw.png" alt="Instagram logo"></a>
-                <a href="#"><img src="img/twitterIcon-bw.png" alt="Twitter logo"></a>
-                <a href="#"><img src="img/youtubeIcon-bw.png" alt="YouTube logo"></a>
-            </div>
-        </div>
-
-        <img src="img/logo.png" alt="Hansel and Petal" height="124" width="207">
-        </div>
-        <div class="footercopy"><a href="index.php">© 2020 Hansel and Petal</a></div>
-    </footer>
+    <?php include "includes/footer.php"; ?>
 
 </body>
 </html>

@@ -3,6 +3,152 @@
     { 
         session_start(); 
     }
+    if(isset($_POST))
+    {
+        $_SESSION["Post-Data"] = $_POST;
+    }
+
+    $minDBId = 1;
+    $maxDBId = 24;
+
+    print_r($_SESSION);
+    //for calculating rabat on popular flowers
+    $percentage = 5;
+
+
+    //For finding 4 random arrangements
+    $randNr1 = rand($minDBId, $maxDBId);
+    $randNr2 = rand($minDBId, $maxDBId);
+    $randNr3 = rand($minDBId, $maxDBId);
+    $randNr4 = rand($minDBId, $maxDBId);
+    //to check if there is more then one of the same number
+    if ($randNr1 == $randNr2 || $randNr1 == $randNr3 || $randNr1 == $randNr4) 
+    {
+        $randNr1 = rand($minDBId, $maxDBId);
+    }
+    if ($randNr2 == $randNr1 || $randNr2 == $randNr3 || $randNr2 == $randNr4) 
+    {
+        $randNr2 = rand($minDBId, $maxDBId);
+    }
+    if ($randNr3 == $randNr1 || $randNr3 == $randNr2 || $randNr3 == $randNr4) 
+    {
+        $randNr3 = rand($minDBId, $maxDBId);
+    }
+   
+
+    if(isset($_POST))
+    {
+        $_SESSION["Post-Data"] = $_POST;
+    }
+    
+    $db = new MySQLi("localhost", "maxsi", "1234qwer", "hansel_petal_flower");
+    
+    if($db->connect_error)
+    {
+        die("Connection to database failed: ". $db->connection_error);
+    }
+    if ($db->error) 
+    {
+        echo $db->error;
+    }
+    //checks date and gives it the right pic for the season
+    function ChangeSeasonFlowerPic()
+    {
+        $tempMonth = date('m');
+
+        switch ($tempMonth) {
+            case '1':
+                return("<img src='img/feature_winter.jpg' alt='cactus arrangements'>");
+                break;
+            case '2':
+                return("<img src='img/feature_spring.jpg' alt='Flower hearts arrangements'>");
+                break;
+            case '3':
+                return("<img src='img/feature_spring.jpg' alt='Red flower arrangements'>");
+                break;
+            case '4':
+                return("<img src='img/feature_spring.jpg' alt='White Rose arrangement'>");
+                break;
+            case '5':
+                return("<img src='img/feature_summer.jpg' alt='Red flower arrangement'>");
+                break;
+            case '6':
+                return("<img src='img/feature_summer.jpg' alt='purple flower arrangement'>");
+                break;
+            case '7':
+                return("<img src='img/feature_summer.jpg' alt='White flower arrangement'>");
+                break;
+            case '8':
+                return("<img src='img/feature_autumn.jpg' alt='yellow flower arrangement'>");
+                break;
+            case '9':
+                return("<img src='img/feature_autumn.jpg' alt='pink/white flower arrangement'>");
+                break;
+            case '10':
+                return("<img src='img/feature_autumn.jpg' alt='pink flower arrangement'>");
+                break;
+            case '11':
+                return("<img src='img/feature_winter.jpg'' alt='Green tree arrangement'>");
+                break;
+            case '12':
+                return("<img src='img/feature_winter.jpg'' alt='brown flower arrangement'>");
+                break;
+            
+            default:
+                return("<img src='img/imagecomingsoon.png' alt='error'>");
+                break;
+        }
+    }
+    //checks date and gives it the right pic for the month
+    function ChangeMonthFlowerPic()
+    {
+        $tempMonth = date('m');
+
+        switch ($tempMonth) {
+            case '1':
+                return("<img src='img/special_jan.jpg' alt='cactus arrangements'>");
+                break;
+            case '2':
+                return("<img src='img/special_feb.jpg' alt='Flower hearts arrangements'>");
+                break;
+            case '3':
+                return("<img src='img/special_mar.jpg' alt='Red flower arrangements'>");
+                break;
+            case '4':
+                return("<img src='img/special_apr.jpg' alt='White Rose arrangement'>");
+                break;
+            case '5':
+                return("<img src='img/special_may.jpg' alt='Red flower arrangement'>");
+                break;
+            case '6':
+                return("<img src='img/special_jun.jpg' alt='purple flower arrangement'>");
+                break;
+            case '7':
+                return("<img src='img/special_jul.jpg' alt='White flower arrangement'>");
+                break;
+            case '8':
+                return("<img src='img/special_aug.jpg' alt='yellow flower arrangement'>");
+                break;
+            case '9':
+                return("<img src='img/special_sep.jpg' alt='pink/white flower arrangement'>");
+                break;
+            case '10':
+                return("<img src='img/special_oct.jpg' alt='pink flower arrangement'>");
+                break;
+            case '11':
+                return("<img src='img/special_nov.jpg' alt='Green tree arrangement'>");
+                break;
+            case '12':
+                return("<img src='img/special_dec.jpg' alt='brown flower arrangement'>");
+                break;
+            
+            default:
+                return("<img src='img/imagecomingsoon.png' alt='error'>");
+                break;
+        }
+    }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -17,29 +163,8 @@
 
 <body class="content">
 
-    <header>
-        <div class="quicklinks">
-            <a href="index.php"><img src="img/logo.png" alt="Hansel and Petal logo"></a>
-            <ul>
-                <li><a href="#">My Account</a></li>
-                <li><a href="order.php">View My Order</a></li>
-                <li><a href="#">Customer Service</a></li>
-                <li class="offer">FREE Shipping on orders over $75.00!</li>
-            </ul>
-        </div>      
-        <nav class="top">
-            <ul>
-                <li><a href="arrangements.php">Arrangements</a></li>
-                <li><a href="bouquet.php">Build a bouquet</a></li>
-                <li class="parent"><a href="#">Care tips</a>
-                    <ul>
-                        <li><a href="care_orchids.php">Orchids</a></li>
-                    </ul>
-                </li>
-                <li><a href="designers.php">Our designers</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include "includes/header.php"; ?>
+    
 
     <main>
         <section class="featured">
@@ -47,7 +172,7 @@
             <article>
                 <p class="overlay header">Beautiful arrangements for any occasion</p>
                 <p class="overlay price">Starting at $45.95</p>
-                <img src="img/980_white_rose_mix_166610678.jpg" alt="White Rose Arrangement">
+                <?php echo ChangeSeasonFlowerPic() ?>
             </article>
         </section>
 
@@ -58,27 +183,50 @@
                     <p><a href="bouquet.php">Browse All Fresh Flowers</a></p>
                 </div>
                 <ul class="indexcontent">
-                    <li>
-                        <a href="#">
-                            <img src="img/200_red_yellow_roses_119752732.jpg" alt="Red Yellow Roses Mix">
-                            <h4>10 Roses</h4>
-                            <p>From $28.50</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/200_irises_121549009.jpg" alt="Purple Irises">
-                            <h4>10 Irises</h4>
-                            <p>From $19.00</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/200_golden_tulips_148182635.jpg" alt="Golden Tulips">
-                            <h4>10 Tulips</h4>
-                            <p>From $19.00</p>
-                        </a>
-                    </li>
+                    <?php 
+                        
+                        $result12 = $db->query("SELECT * FROM flowers ORDER BY FSold DESC LIMIT 3");
+                        while ($row = $result12->fetch_assoc()) 
+                        {
+                            if (isset($row["FImg"])) //checks if the variable has a value
+                            {
+                                if (strpos($row['FImg'], " "))  //if there is more then one
+                                {
+                                    $img = explode(" ", $row["FImg"])[0];
+                                }
+                                else //if there is 1 pic
+                                {
+                                    $img = $row['FImg'];
+                                }
+                            }
+                            else // if there is no pic
+                            {
+                                $img = "imagecomingsoon.png";
+                            }
+                            
+                            //used for calculating the price of flowers per 10
+                            if (isset($row['FPrice'])) 
+                            {
+                                
+                                $FullPrice= $row['FPrice'] * 10;
+                                $RabatPercentage = ($percentage / 100) * $FullPrice;
+                                $FlowerPrice = $FullPrice - $RabatPercentage;
+                            }
+                            ?>
+                            <li>
+                                <a href="flwrdetails.php?FID=<?php echo $row['FID']?>">
+                                    <img src="<?php echo 'img/'.$img ?>" alt="<?php echo $row['FName'] ?>">
+                                    <h4>10 <?php echo $row['FName'] ?></h4>
+                                    <p>From $<?php echo $FlowerPrice?></p>
+                                </a>
+                            </li>
+
+
+                        <?php 
+                        }
+                        ?> 
+
+                    
                 </ul>
             </article>
         </section>
@@ -89,34 +237,54 @@
                     <p><a href="arrangements.php">Browse All Arrangements</a></p>
                 </div>
                 <ul class="indexcontent">
-                    <li>
-                        <a href="#">
-                            <img src="img/200_bouquet_watering_can_orange_163066621.jpg" alt="Watering Can">
-                            <h4>It's Raining Flowers</h4>
-                            <p>From $19.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/200_arrangement_94972439.jpg" alt="Sunflower Bouquet">
-                            <h4>Thinking of You</h4>
-                            <p>From $35.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/200_purple_daisy_rose104274224.jpg" alt="Purple Daisy Bouquet">
-                            <h4>Purple Galore</h4>
-                            <p>From $21.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/200_arrangement_163066655.jpg" alt="Bucket o' Mums">
-                            <h4>Polka Dot Pail</h4>
-                            <p>From $25.95</p>
-                        </a>
-                    </li>
+
+                <?php 
+                        
+                        $result12 = $db->query("SELECT * FROM arrangements ORDER BY id ASC");
+                        while ($row = $result12->fetch_assoc()) 
+                        {
+                            if ( $randNr1 == $row['id'] || $randNr2 == $row['id'] || $randNr3 == $row['id'] || $randNr4 == $row['id']) 
+                            {
+                              
+                            
+                                if (isset($row["image"])) //checks if the variable has a value
+                                {
+                                    if (strpos($row['image'], " "))  //if there is more then one
+                                    {
+                                        $img = explode(" ", $row["image"])[0];
+                                    }
+                                    else //if there is 1 pic
+                                    {
+                                        $img = $row['image'];
+                                    }
+                                }
+                                else // if there is no pic
+                                {
+                                    $img = "imagecomingsoon.png";
+                                }
+                            
+                            
+                    ?>
+                                <li>
+                                    <a href="arrdetails.php?id=<?php echo $row['id']?>">
+                                        <img src="<?php echo 'img/'.$img ?>" alt="<?php echo $row['alt'] ?>">
+                                        <h4><?php echo $row['title'] ?></h4>
+                                        <p>From $<?php echo $row['price']?></p>
+                                    </a>
+                                </li>
+
+
+                        <?php 
+                            }
+                        }
+                        ?> 
+
+
+
+
+
+
+
                 </ul>
             </article>
         </section>
@@ -132,7 +300,7 @@
                         <a href="bouquet.php">
                             <p class="overlay feature">Create Your Own Bouquet</p>
                             <p class="overlay desc">Choose the flowers you want, and our designers will create a custom arrangement! <span class="price">Bouquets from $29.95</span></p>
-                            <img src="img/700_tulips_daffodils_163271740.jpg" alt="Custom Bouquet">
+                            <img src="img/700_2_tulip_field_154321412.jpg" alt="Custom Bouquet">
                         </a>
                     </li>
                     <li>
@@ -144,7 +312,7 @@
                         <a href="arrangements.php">
                             <p class="overlay feature">Seasonal Specials</p>
                             <p class="overlay price">Starting at $24.95</p>
-                            <img src="img/700_2_tulip_field_154321412.jpg" alt="Fresh Tulips">
+                            <?php echo ChangeMonthFlowerPic();?>
                         </a>
                     </li>
                 </ul>
@@ -153,45 +321,7 @@
 
     </main>
 
-    <footer>
-    <div class="footercontent">
-        <div>
-            <a href="arrangements.php">Arrangements</a>
-            <a href="shop.php">Live Plants</a>
-            <a href="bouquet.php">Build-a-Bouquet</a>
-            <a href="#">Special Events</a>
-            <a href="#">Care Tips</a>
-            <a href="#">Eco-Conscious</a>
-            <a href="designers.php">Our Designers</a>
-        </div>
-
-        <div>
-            <a href="#">My Account</a>
-            <a href="#">Order Status</a>
-            <a href="#">Customer Service</a>
-            <a href="#">Fresh Flower Guarantee</a>
-            <a href="#">Shipping Information</a>
-
-
-        </div>
-
-        <div>
-            <a href="#">About Us</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms &amp; Conditions</a>
-            <p>Follow us on SoMe:</p>
-            <div class="footerSoMe">
-                <a href="#"><img src="img/facebookIcon-bw.png" alt="Facebook logo"></a>
-                <a href="#"><img src="img/instagramIcon-bw.png" alt="Instagram logo"></a>
-                <a href="#"><img src="img/twitterIcon-bw.png" alt="Twitter logo"></a>
-                <a href="#"><img src="img/youtubeIcon-bw.png" alt="YouTube logo"></a>
-            </div>
-        </div>
-
-        <img src="img/logo.png" alt="Hansel and Petal" height="124" width="207">
-        </div>
-        <div class="footercopy"><a href="index.php">© 2020 Hansel and Petal</a></div>
-    </footer>
+    <?php include "includes/footer.php"; ?>
 
 </body>
 </html>

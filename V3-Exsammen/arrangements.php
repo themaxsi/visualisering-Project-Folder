@@ -1,3 +1,25 @@
+<?php
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
+
+    
+    
+    $db = new MySQLi("localhost", "maxsi", "1234qwer", "hansel_petal_flower");
+    
+    if($db->connect_error)
+    {
+        die("Connection to database failed: ". $db->connection_error);
+    }
+    if ($db->error) 
+    {
+        echo $db->error;
+    }
+
+    
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,29 +32,7 @@
 
 <body class="content">
 
-    <header>
-        <div class="quicklinks">
-            <a href="index.php"><img src="img/logo.png" alt="Hansel and Petal logo"></a>
-            <ul>
-                <li><a href="#">My Account</a></li>
-                <li><a href="order.php">View My Order</a></li>
-                <li><a href="#">Customer Service</a></li>
-                <li class="offer">FREE Shipping on orders over $75.00!</li>
-            </ul>
-        </div>      
-        <nav class="top">
-            <ul>
-                <li><a href="arrangements.php">Arrangements</a></li>
-                <li><a href="bouquet.php">Build a bouquet</a></li>
-                <li class="parent"><a href="#">Care tips</a>
-                    <ul>
-                        <li><a href="care_orchids.php">Orchids</a></li>
-                    </ul>
-                </li>
-                <li><a href="designers.php">Our designers</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include "includes/header.php"; ?>
 
     <main>
         <section class="featured">
@@ -52,217 +52,52 @@
         <section>
             <article class="arrindex">
                 <ul class="indexcontent">
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_arrangement_yellow_tulip.jpg" alt="Yellow Tulips">
-                            <h4>Burst of Yellow</h4>
-                            <p>From $19.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_arrangement_163066655.jpg" alt="Mixed Mums" >
-                            <h4>Polka Dot Pail</h4>
-                            <p>From $25.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_tulips_daffodils_139756476.jpg" alt="Mixed Tulips" >
-                            <h4>Green Thumb</h4>
-                            <p>From $22.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_bouquet_watering_can_orange_163066621.jpg" alt="Watering Can with Mums" >
-                            <h4>It's Raining Flowers</h4>
-                            <p>From $19.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_carnations_basket_92246977.jpg" alt="Basket of Carnations" >
-                            <h4>Get Well Soon</h4>
-                            <p>From $19.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_lilacs_tulips_157045915.jpg" alt="Tulips and Lilac" >
-                            <h4>Bon Anniversaire!</h4>
-                            <p>From $25.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_sunflowers_146748795.jpg" alt="Sunflowers" >
-                            <h4>Brighten Any Day</h4>
-                            <p>From $22.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_white_tulip_163199928.jpg" alt="White Tulips" >
-                            <h4>Purely Beautiful</h4>
-                            <p>From $19.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_tulips_daffodils_153986115.jpg" alt="Mixed Tulips" >
-                            <h4>Tea for Two</h4>
-                            <p>From $15.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_arrangement_94972439.jpg" alt="Mixed Bouquet" >
-                            <h4>Thinking of You</h4>
-                            <p>From $35.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_irises_lilies_87478811.jpg" alt="Irises and Lilies" >
-                            <h4>Simply Elegant</h4>
-                            <p>From $22.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_pink_white_daisies_146806077.jpg" alt="Pink and White Mums" >
-                            <h4>Blush and Bashful</h4>
-                            <p>From $19.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_tulips_watering_can_155465445.jpg" alt="Tulips in Water Can" >
-                            <h4>Morning in the Garden</h4>
-                            <p>From $29.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_birthday_163167595.jpg" alt="Orchid Bouquet" >
-                            <h4>Orchids for the Table</h4>
-                            <p>From $35.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_red_yellow_roses_119752732.jpg" alt="Red and Yellow Roses" >
-                            <h4>Classic Rose Bouqet</h4>
-                            <p>From $49.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_white_lily_pink_daisy_92493508.jpg" alt="Lilies and Roses" >
-                            <h4>Evening Surprise</h4>
-                            <p>From $29.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_carnations_daisies_92007328.jpg" alt="Carnations and Daisies" >
-                            <h4>Cheer Up!</h4>
-                            <p>From $19.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_purple_daisy_rose104274224.jpg" alt="Daisy Bouquet" >
-                            <h4>Purple Galore</h4>
-                            <p>From $21.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_colorful_gerbera_119722776.jpg" alt="Mixed Gerbera Daisies" >
-                            <h4>Dotted Daisies</h4>
-                            <p>From $25.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_yellow_white_mums_147664285.jpg" alt="Daisy Mix" >
-                            <h4>Patio Picnicking</h4>
-                            <p>From $19.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_tulips_daffodils2_153986183.jpg" alt="Mixed Tulips" >
-                            <h4>Box of Happiness</h4>
-                            <p>From $29.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_butterflies_120624479.jpg" alt="Daisies and Butterflies" >
-                            <h4>Bounty of Butterflies</h4>
-                            <p>From $25.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_tulips_irises_121357306.jpg" alt="Irises and Tulips" >
-                            <h4>Mardi Gras Mambo</h4>
-                            <p>From $29.95</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="arrdetails.php">
-                            <img src="img/200_tulips_daffodils4_160232631.jpg" alt="Mixed Bulbs" >
-                            <h4>Cascade of Color</h4>
-                            <p>From $32.95</p>
-                        </a>
-                    </li>
+
+                    
+                <?php 
+                        
+                        $result12 = $db->query("SELECT * FROM arrangements ORDER BY id ASC");
+                        while ($row = $result12->fetch_assoc()) 
+                        {
+                            if (isset($row["image"])) //checks if the variable has a value
+                            {
+                                if (strpos($row['image'], " "))  //if there is more then one
+                                {
+                                    $img = explode(" ", $row["image"])[0];
+                                }
+                                else //if there is 1 pic
+                                {
+                                    $img = $row['image'];
+                                }
+                            }
+                            else // if there is no pic
+                            {
+                                $img = "imagecomingsoon.png";
+                            }
+                            
+                            
+
+                            ?>
+                            <li>
+                                <a href="arrdetails.php?id=<?php echo $row['id']?>">
+                                    <img src="<?php echo 'img/'.$img ?>" alt="<?php echo $row['alt'] ?>">
+                                    <h4><?php echo $row['title']?></h4>
+                                    <p>From <?php echo $row['price']?></p>
+                                </a>
+                            </li>
+
+
+                        <?php 
+                        }
+                        ?> 
+
+
+
                 </ul>
             </article>
         </section>
     </main>
     
-    <footer>
-    <div class="footercontent">
-        <div>
-            <a href="arrangements.php">Arrangements</a>
-            <a href="shop.php">Live Plants</a>
-            <a href="bouquet.php">Build-a-Bouquet</a>
-            <a href="#">Special Events</a>
-            <a href="#">Care Tips</a>
-            <a href="#">Eco-Conscious</a>
-            <a href="designers.php">Our Designers</a>
-        </div>
-
-        <div>
-            <a href="#">My Account</a>
-            <a href="#">Order Status</a>
-            <a href="#">Customer Service</a>
-            <a href="#">Fresh Flower Guarantee</a>
-            <a href="#">Shipping Information</a>
-
-
-        </div>
-
-        <div>
-            <a href="#">About Us</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms &amp; Conditions</a>
-            <p>Follow us on SoMe:</p>
-            <div class="footerSoMe">
-                <a href="#"><img src="img/facebookIcon-bw.png" alt="Facebook logo"></a>
-                <a href="#"><img src="img/instagramIcon-bw.png" alt="Instagram logo"></a>
-                <a href="#"><img src="img/twitterIcon-bw.png" alt="Twitter logo"></a>
-                <a href="#"><img src="img/youtubeIcon-bw.png" alt="YouTube logo"></a>
-            </div>
-        </div>
-
-        <img src="img/logo.png" alt="Hansel and Petal" height="124" width="207">
-        </div>
-        <div class="footercopy"><a href="index.php">© 2020 Hansel and Petal</a></div>
-    </footer>
+    <?php include "includes/footer.php"; ?>
 </body>
 </html>
