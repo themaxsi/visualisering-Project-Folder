@@ -14,7 +14,8 @@
                 <li><a href="#">Customer Service</a></li>
                 <li class="offer">FREE Shipping on orders over $75.00!</li>
             </ul>
-        </div>      
+        </div>    
+          
         <nav class="top">
             <ul>
                 <li><a href="arrangements.php">Arrangements</a></li>

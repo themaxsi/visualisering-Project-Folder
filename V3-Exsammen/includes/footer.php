@@ -43,6 +43,7 @@
 
         <img src="img/logo.png" alt="Hansel and Petal" height="124" width="207">
     </div>
+    
     <div class="footercopy"><a href="index.php">© 2020 Hansel and Petal</a></div>
 
 </footer>

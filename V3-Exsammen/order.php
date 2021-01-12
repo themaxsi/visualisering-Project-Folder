@@ -20,7 +20,6 @@
     }
     
 
-    print_r($_SESSION);
 
 ?>
 
@@ -32,6 +31,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Hansel & Petal</title>
 </head>
@@ -140,6 +140,8 @@
                 <p>Amount of Flowers <?php echo $_SESSION['Post-Data']['qty_Daisies'] + $_SESSION['Post-Data']['qty_Lilac'] + $_SESSION['Post-Data']['qty_Tulips'] + $_SESSION['Post-Data']['qty_Lilies'] + $_SESSION['Post-Data']['qty_Roses'] + $_SESSION['Post-Data']['qty_Dendrobium_Orchid'] + $_SESSION['Post-Data']['qty_Gerbera_Daisies'] + $_SESSION['Post-Data']['qty_Daffodils_(Narcissus)'] + $_SESSION['Post-Data']['qty_Peruvian_Lilies'] + $_SESSION['Post-Data']['qty_Iris'] + $_SESSION['Post-Data']['qty_Sunflowers'] + $_SESSION['Post-Data']['qty_Calla_Lilies'] ?> </p>
                 <p>Full price $<?php echo ($_SESSION['Post-Data']['cost_Daisies'] * $_SESSION['Post-Data']['qty_Daisies']) + ($_SESSION['Post-Data']['cost_Lilac'] * $_SESSION['Post-Data']['qty_Lilac']) + ($_SESSION['Post-Data']['cost_Tulips'] * $_SESSION['Post-Data']['qty_Tulips']) + ($_SESSION['Post-Data']['cost_Lilies'] * $_SESSION['Post-Data']['qty_Lilies']) + ($_SESSION['Post-Data']['cost_Roses'] * $_SESSION['Post-Data']['qty_Roses']) + ($_SESSION['Post-Data']['cost_Dendrobium_Orchid'] * $_SESSION['Post-Data']['qty_Dendrobium_Orchid']) + ($_SESSION['Post-Data']['cost_Gerbera_Daisies'] * $_SESSION['Post-Data']['qty_Gerbera_Daisies']) + ($_SESSION['Post-Data']['cost_Daffodils_(Narcissus)'] * $_SESSION['Post-Data']['qty_Daffodils_(Narcissus)']) + ($_SESSION['Post-Data']['cost_Peruvian_Lilies'] * $_SESSION['Post-Data']['qty_Peruvian_Lilies']) + ($_SESSION['Post-Data']['cost_Iris'] * $_SESSION['Post-Data']['qty_Iris']) + ($_SESSION['Post-Data']['cost_Sunflowers'] * $_SESSION['Post-Data']['qty_Sunflowers']) + ($_SESSION['Post-Data']['cost_Calla_Lilies'] * $_SESSION['Post-Data']['qty_Calla_Lilies'])?></p>
 
+
+                <!-- to make a line under the final result -->
                 <div class="orderLine"></div>
                 <div class="orderLine"></div>
                 <div class="orderLine"></div>

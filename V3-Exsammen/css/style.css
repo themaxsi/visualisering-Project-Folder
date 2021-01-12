@@ -118,10 +118,12 @@ header {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .top ul li {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 48px;
   padding: 0 2rem;
   border-bottom: 2px solid transparent;

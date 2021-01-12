@@ -11,7 +11,6 @@
     $minDBId = 1;
     $maxDBId = 24;
 
-    print_r($_SESSION);
     //for calculating rabat on popular flowers
     $percentage = 5;
 
@@ -34,13 +33,19 @@
     {
         $randNr3 = rand($minDBId, $maxDBId);
     }
-   
+    if ($randNr4 == $randNr1 || $randNr4 == $randNr2 || $randNr4 == $randNr3) 
+    {
+        $randNr3 = rand($minDBId, $maxDBId);
+    }
+
+
 
     if(isset($_POST))
     {
         $_SESSION["Post-Data"] = $_POST;
     }
-    
+
+    // Database connection
     $db = new MySQLi("localhost", "maxsi", "1234qwer", "hansel_petal_flower");
     
     if($db->connect_error)
@@ -51,6 +56,9 @@
     {
         echo $db->error;
     }
+
+
+
     //checks date and gives it the right pic for the season
     function ChangeSeasonFlowerPic()
     {
@@ -157,6 +165,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Hansel & Petal</title>
 </head>
@@ -182,6 +191,7 @@
                     <h2>Our Most Popular Flowers</h2>
                     <p><a href="bouquet.php">Browse All Fresh Flowers</a></p>
                 </div>
+
                 <ul class="indexcontent">
                     <?php 
                         
@@ -207,9 +217,11 @@
                             //used for calculating the price of flowers per 10
                             if (isset($row['FPrice'])) 
                             {
-                                
+                                //calculates the full price
                                 $FullPrice= $row['FPrice'] * 10;
+                                //calculates Percentage of the full price
                                 $RabatPercentage = ($percentage / 100) * $FullPrice;
+                                //calculates the price with the discount
                                 $FlowerPrice = $FullPrice - $RabatPercentage;
                             }
                             ?>
@@ -230,12 +242,15 @@
                 </ul>
             </article>
         </section>
+
+
         <section class="bouqets">
             <article class="products">
                 <div class="indexheadline">
                     <h2>Bouquets & Arrangements</h2>
                     <p><a href="arrangements.php">Browse All Arrangements</a></p>
                 </div>
+
                 <ul class="indexcontent">
 
                 <?php 
@@ -279,15 +294,11 @@
                         }
                         ?> 
 
-
-
-
-
-
-
                 </ul>
             </article>
         </section>
+
+
         <section class="specials">
             <article class="products">
                 <div class="indexheadline">
@@ -303,6 +314,7 @@
                             <img src="img/700_2_tulip_field_154321412.jpg" alt="Custom Bouquet">
                         </a>
                     </li>
+                    
                     <li>
                         <a href="arrangements.php">
                             <p class="overlay feature">Live Plants Keep Giving</p>

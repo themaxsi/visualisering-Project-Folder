@@ -139,6 +139,7 @@ header
     width: 100%;
     display: flex;
     align-items: center;   
+    
 
     ul
     {
@@ -147,10 +148,12 @@ header
         width: 100%;
         align-items: center;
         justify-content: space-around;
+        margin-bottom: 5px;
+        margin-top: 5px;
 
         li
         {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             line-height: 48px;
             padding: 0 2rem;
             border-bottom: 2px solid transparent;
@@ -158,6 +161,8 @@ header
             &:hover
             {
                 background-color: $color-link-hover-background;
+                
+                
             }
 
             a

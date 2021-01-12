@@ -26,6 +26,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Hansel & Petal</title>
 </head>
@@ -42,6 +43,7 @@
                     <p>Hansel &amp; Petal offers you the freshest flowers for long-lasting enjoyment, and our designers create one-of-a-kind arrangements guaranteed to bring smiles to everyone's faces.</p><br>
                     <p>Choose from our popular arrangements or <a href="bouquet.php" class="btn">Create Your Own Custom Bouquet </a></p>
                 </article>
+
                 <article>
                     <p class="overlay large">Spring Lilacs and Tulips</p>
                     <p class="overlay price">Starting at $39.95</p>
@@ -55,43 +57,38 @@
 
                     
                 <?php 
-                        
-                        $result12 = $db->query("SELECT * FROM arrangements ORDER BY id ASC");
-                        while ($row = $result12->fetch_assoc()) 
+                    $result12 = $db->query("SELECT * FROM arrangements ORDER BY id ASC");
+                    while ($row = $result12->fetch_assoc()) 
+                    {
+                        if (isset($row["image"])) //checks if the variable has a value
                         {
-                            if (isset($row["image"])) //checks if the variable has a value
+                            if (strpos($row['image'], " "))  //if there is more then one
                             {
-                                if (strpos($row['image'], " "))  //if there is more then one
-                                {
-                                    $img = explode(" ", $row["image"])[0];
-                                }
-                                else //if there is 1 pic
-                                {
-                                    $img = $row['image'];
-                                }
+                                $img = explode(" ", $row["image"])[0];
                             }
-                            else // if there is no pic
+                            else //if there is 1 pic
                             {
-                                $img = "imagecomingsoon.png";
+                                $img = $row['image'];
                             }
-                            
-                            
-
-                            ?>
-                            <li>
-                                <a href="arrdetails.php?id=<?php echo $row['id']?>">
-                                    <img src="<?php echo 'img/'.$img ?>" alt="<?php echo $row['alt'] ?>">
-                                    <h4><?php echo $row['title']?></h4>
-                                    <p>From <?php echo $row['price']?></p>
-                                </a>
-                            </li>
-
-
-                        <?php 
                         }
-                        ?> 
+                        else // if there is no pic
+                        {
+                            $img = "imagecomingsoon.png";
+                        }
+                            
+                            
 
-
+                        ?>
+                        <li>
+                            <a href="arrdetails.php?id=<?php echo $row['id']?>">
+                                <img src="<?php echo 'img/'.$img ?>" alt="<?php echo $row['alt'] ?>">
+                                <h4><?php echo $row['title']?></h4>
+                                <p>From <?php echo $row['price']?></p>
+                            </a>
+                        </li>
+                    <?php 
+                    }
+                    ?> 
 
                 </ul>
             </article>
