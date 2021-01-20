@@ -11,78 +11,102 @@
 </head>
 <body>
 
-    <header>
-        <img src="images/wisdompetlogo.svg" alt="Wisdom Pet Logo">
-    </header>
+  <header class="mt-6">
+    <img src="images/wisdompetlogo.svg" alt="Wisdom Pet Logo">
+  </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">WPM</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-      
-            <li class="nav-item">
-              <a class="nav-link" href="doctors.html">doctors</a>
-            </li>
-      
-            <li class="nav-item">
-              <a class="nav-link active" href="Surgery.html">Surgery</a>
-            </li>
-      
-            <li class="nav-item">
-              <a class="nav-link" href="testimonials.html">testimonials</a>
-            </li>
-           
-            <li class="nav-item">
-              <a class="nav-link" href="Behavioural.html">Behavioural</a>
-            </li>
-           
-            <li class="nav-item">
-              <a class="nav-link" href="inhousediag.html">inhousediag</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
     
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto text-uppercase ">
+        <a class="navbar-brand " href="index.html">WPM</a>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link" href="doctors.html">doctors</a>
+        </li>
+  
+        
+  
+        <li class="nav-item">
+          <a class="nav-link" href="testimonials.html">testimonials</a>
+        </li>
+       
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            BehandlingsSider
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="inhousediag.html">inhousediag</a>
+            <a class="dropdown-item" href="Behavioural.html">Behavioural</a>
+            <a class="dropdown-item active" href="Surgery.html">Surgery</a>
+          </div>
+        </li>
 
-
-    <section>
+        
+      </ul>
+    </div>
+  </nav>
+    
+  <div class="row">
+    <div class="col"></div>
+    <section class="col-7">
         <article>
             <h1>Surgery and Dental Services</h1>
             
             <p>We are equipped with an in house surgical and dental suite that allows us to offer a variety of procedures to help maintain your pets health.</h3>
         </article>
     </section>
+    <div class="col"></div>
+  </div>
 
-  <section>
-    <article>
-        <h2>Surgery</h2>
-        
-        <p>We know the stress that you can feel when your pet is undergoing an operation. Our board-certified surgeon and supportive staff will be there every step of the way, providing instructions the night before, prepping your pet before the operation, maintaining incredible attention to detail during the operation, and providing you with post-operative instructions for at home care. Our surgical services include but are not limited to:</p>
-        
-        <ul>
-            <li>Tibial Plateau Leveling Osteotomy (TPLO)</li>
-            <li>Tibial Tuberosity Advancement  (TTA)</li>
-            <li>Spay/Neutering</li>
-            <li>Mass Removals</li>
-            <li>Cystotomy</li>
-            <li>Ear Hematoma Correction</li>
-            <li>Cherry Eye Correction</li>
-            <li>Enucleation (eye removal)</li>
-        </ul>	
-        
-        <h2>Dentistry</h2>
-        
-        <p>We offer a wide range of comprehensive veterinary dental services, from routine cleanings (prophylaxis) to extractions and periodontal disease management, as needed. Radiology is also used as part of our extensive dentistry services. Specially designed dental radiology equipment allows our specialists to view structures that lie below the gum line. With this knowledge, the best decisions can be made about what dental treatment is right for your pet.</p>
-        
-    </article>
+  <div class="row">
+    <div class="col"></div>
 
-</section>
+    <section class="accordion col-8">
+      <article id="accordion">
+        <div class="card">
+          <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#collapseOne">
+              <h2>Surgery</h2>
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse" data-parent="#accordion">
+            <p>We know the stress that you can feel when your pet is undergoing an operation. Our board-certified surgeon and supportive staff will be there every step of the way, providing instructions the night before, prepping your pet before the operation, maintaining incredible attention to detail during the operation, and providing you with post-operative instructions for at home care. Our surgical services include but are not limited to:</p>
+            
+            <ul>
+                <li>Tibial Plateau Leveling Osteotomy (TPLO)</li>
+                <li>Tibial Tuberosity Advancement  (TTA)</li>
+                <li>Spay/Neutering</li>
+                <li>Mass Removals</li>
+                <li>Cystotomy</li>
+                <li>Ear Hematoma Correction</li>
+                <li>Cherry Eye Correction</li>
+                <li>Enucleation (eye removal)</li>
+            </ul>	
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+              <h2>Dentistry</h2>
+            </a>
+          </div>
+          <div id="collapseTwo" class="collapse" data-parent="#accordion">
+            <p>We offer a wide range of comprehensive veterinary dental services, from routine cleanings (prophylaxis) to extractions and periodontal disease management, as needed. Radiology is also used as part of our extensive dentistry services. Specially designed dental radiology equipment allows our specialists to view structures that lie below the gum line. With this knowledge, the best decisions can be made about what dental treatment is right for your pet.</p>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <div class="col"></div>
+  </div>
 
     <script src="js/jquery.slim.min.js"></script>
     <script src="js/popper.min.js"></script>

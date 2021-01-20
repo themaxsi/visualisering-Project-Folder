@@ -11,17 +11,18 @@
 </head>
 <body>
 
-  <header>
+  <header class="mt-6">
     <img src="images/wisdompetlogo.svg" alt="Wisdom Pet Logo">
   </header>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">WPM</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav mx-auto text-uppercase ">
+        <a class="navbar-brand " href="index.html">WPM</a>
         <li class="nav-item">
           <a class="nav-link" href="index.html">Home</a>
         </li>
@@ -30,48 +31,61 @@
           <a class="nav-link" href="doctors.html">doctors</a>
         </li>
   
-        <li class="nav-item">
-          <a class="nav-link" href="Surgery.html">Surgery</a>
-        </li>
+        
   
         <li class="nav-item">
           <a class="nav-link" href="testimonials.html">testimonials</a>
         </li>
        
-        <li class="nav-item">
-          <a class="nav-link active" href="Behavioural.html">Behavioural</a>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            BehandlingsSider
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="inhousediag.html">inhousediag</a>
+            <a class="dropdown-item active" href="Behavioural.html">Behavioural</a>
+            <a class="dropdown-item" href="Surgery.html">Surgery</a>
+          </div>
         </li>
-       
-        <li class="nav-item">
-          <a class="nav-link" href="inhousediag.html">inhousediag</a>
-        </li>
+
+        
       </ul>
     </div>
   </nav>
 
+  <div class="container">
 
-  <section>
-    <article>
-      <h1>Behavioral Consultation</h1>
-      
-      <p>Behavioral consultations are possible both to help your pet during procedures that it finds uncomfortable but also for day-to-day behavioral challenges.</h3>
-    </article>
-  </section>
+    <div class="row">
+      <div class="col"></div>
+      <section class="col-12">
+        <article>
+          <h1>Behavioral Consultation</h1>
+          
+          <p>Behavioral consultations are possible both to help your pet during procedures that it finds uncomfortable but also for day-to-day behavioral challenges.</h3>
+        </article>
+      </section>
+      <div class="col"></div>
+    </div>
 
-  <section>
-    <article>
-      <img src="images/carousel-vaccinations.jpg">
-      
-      <p>
-          Dr. Winthrop is passionate about behavioral medicine. He provides behavioral consultations to assess patient needs from an integrative medical approach. He works and refers to local boarded veterinary behaviorists and trainers that have a similar approach a philosophy toward animal behavior and training.
-      </p>
-        
-      <p>
-          A behavioral consult typically consists of an hour-long appointment. A thorough physical examination and review of medical records and conditions is performed in addition to extensive discussion of behavioral concerns. From this, treatment options are discussed where appropriate in regards to herbal formulations and medications, behavioral modification, and training. 
-      </p>
-    </article>
-  </section>
+    <div class="row">
+      <div class="col"></div>
+      <section class="col-12">
+        <article>
+          <img class="img-fluid" src="images/carousel-vaccinations.jpg">
+          
+          <p>
+              Dr. Winthrop is passionate about behavioral medicine. He provides behavioral consultations to assess patient needs from an integrative medical approach. He works and refers to local boarded veterinary behaviorists and trainers that have a similar approach a philosophy toward animal behavior and training.
+          </p>
+            
+          <p>
+              A behavioral consult typically consists of an hour-long appointment. A thorough physical examination and review of medical records and conditions is performed in addition to extensive discussion of behavioral concerns. From this, treatment options are discussed where appropriate in regards to herbal formulations and medications, behavioral modification, and training. 
+          </p>
+        </article>
+      </section>
+      <div class="col"></div>
+    </div>
 
+  </div>
   <script src="js/jquery.slim.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
